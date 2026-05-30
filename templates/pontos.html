@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pontos Turísticos</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/css/pontos.css">
+
 </head>
 
 <body>
@@ -59,253 +60,259 @@
                 Gastronomia
             </a>
 
+        </section>
+
+        {% if not usuario_logado %}
+
+        <section class="login-notice">
+
+            <div class="login-notice-content">
+
+                <p class="login-notice-text">
+                    Faça login para comentar pontos turísticos e receber recomendações personalizadas.
+                </p>
+
+                <a href="{{ url_for('login') }}" class="login-notice-button">
+                    Entrar ou criar conta
+                </a>
+
+            </div>
 
         </section>
 
+        {% endif %}
+
         <section class="cards-section">
 
-    <div class="cards-grid">
+            <div class="cards-grid">
 
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/foto-orla.webp') }}"
-                            alt="Praia de Tambaú"
-                            class="card-image">
-                    </div>
+                <a href="{{ url_for('ponto', slug='praia-de-tambau') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/foto-orla.webp') }}"
+                                alt="Praia de Tambaú"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Praia & Mar</span>
+                            <h3 class="card-title">Praia de Tambaú</h3>
+                            <p class="card-description">
+                                O coração litorâneo da capital. Reconhecida pelo mar calmo, orla movimentada e feirinha de artesanato.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                    <div class="card-content">
-                        <span class="categoria">Praia & Mar</span>
+                <a href="{{ url_for('ponto', slug='praia-de-cabo-branco') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/cabo-branco.jpg') }}"
+                                alt="Praia de Cabo Branco"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Praia & Mar</span>
+                            <span class="categoria">Gastronomia</span>
+                            <h3 class="card-title">Praia de Cabo Branco</h3>
+                            <p class="card-description">
+                                Conhecida por suas belas paisagens e pelo famoso Farol do Cabo Branco, é um dos cartões-postais mais visitados de João Pessoa.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                        <h3 class="card-title">Praia de Tambaú</h3>
+                <a href="{{ url_for('ponto', slug='piscinas-de-picaozinho') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/piscinas-picaozinho.webp') }}"
+                                alt="Piscinas de Picãozinho"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Praia & Mar</span>
+                            <span class="categoria">Aventura</span>
+                            <span class="categoria">Natureza</span>
+                            <h3 class="card-title">Piscinas de Picãozinho</h3>
+                            <p class="card-description">
+                                Formadas durante a maré baixa, elas encantam visitantes com águas claras, recifes e passeios de catamarã saindo da Praia de Tambaú.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                        <p class="card-description">
-                            O coração litorâneo da capital. Reconhecida pelo mar calmo, orla movimentada e feirinha de artesanato.
-                        </p>
-                    </div>
-                </article>
+                <a href="{{ url_for('ponto', slug='praia-do-bessa') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/praia-do-bessa.jpg') }}"
+                                alt="Praia do Bessa"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Praia & Mar</span>
+                            <h3 class="card-title">Praia do Bessa</h3>
+                            <p class="card-description">
+                                Praia mais tranquila, ideal para quem quer ambientes para passeios sossegados em família.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/cabo-branco.jpg') }}"
-                            alt="Praia de Cabo Branco"
-                            class="card-image">
-                    </div>
+                <a href="{{ url_for('ponto', slug='mercado-de-artesanato-paraibano') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/map.jpg') }}"
+                                alt="Mercado de Artesanato Paraibano"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Cultura & História</span>
+                            <span class="categoria">Gastronomia</span>
+                            <h3 class="card-title">Mercado de Artesanato Paraibano</h3>
+                            <p class="card-description">
+                                Espaço tradicional de João Pessoa que reúne artesanato regional, produtos culturais e itens típicos da cultura paraibana.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                    <div class="card-content">
-                        <span class="categoria">Praia & Mar</span>
-                        <span class="categoria">Gastronomia</span>
+                <a href="{{ url_for('ponto', slug='estacao-cabo-branco') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/estacao-cabo-branco.jpeg') }}"
+                                alt="Estação Cabo Branco"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Cultura & História</span>
+                            <h3 class="card-title">Estação Cabo Branco</h3>
+                            <p class="card-description">
+                                Centro cultural assinado por Niemeyer com exposições, mirante e um dos mais marcantes prédios contemporâneos da Paraíba.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                        <h3 class="card-title">Praia de Cabo Branco</h3>
+                <a href="{{ url_for('ponto', slug='centro-cultural-sao-francisco') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/centro-sfrancisco-externo.jpg') }}"
+                                alt="Centro Cultural São Francisco"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Cultura & História</span>
+                            <h3 class="card-title">Centro Cultural São Francisco</h3>
+                            <p class="card-description">
+                                Importante conjunto histórico e religioso do século XVII, com igreja dourada, claustros com azulejos portugueses e museu de arte sacra.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                        <p class="card-description">
-                            Conhecida por suas belas paisagens e pelo famoso Farol do Cabo Branco, é um dos cartões-postais mais visitados de João Pessoa.
-                        </p>
-                    </div>
-                </article>
+                <a href="{{ url_for('ponto', slug='hotel-globo') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/hotel-globo.jpeg') }}"
+                                alt="Hotel Globo"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Cultura & História</span>
+                            <h3 class="card-title">Hotel Globo</h3>
+                            <p class="card-description">
+                                Histórico edifício do centro de João Pessoa, conhecido pela arquitetura preservada e pela vista do pôr do sol sobre o rio Sanhauá.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/piscinas-picaozinho.webp') }}"
-                            alt="Piscinas de Picãozinho"
-                            class="card-image">
-                    </div>
+                <a href="{{ url_for('ponto', slug='mosteiro-de-sao-bento') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/mosteiro-de-sao-bento.webp') }}"
+                                alt="Mosteiro de São Bento"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Cultura & História</span>
+                            <h3 class="card-title">Mosteiro de São Bento</h3>
+                            <p class="card-description">
+                                Tradicional monumento religioso do centro histórico, conhecido pela arquitetura colonial e pela importância cultural e espiritual em João Pessoa.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                    <div class="card-content">
-                        <span class="categoria">Praia & Mar</span>
-                        <span class="categoria">Aventura</span>
-                        <span class="categoria">Natureza</span>
+                <a href="{{ url_for('ponto', slug='teatro-santa-roza') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/teatro-santa-roza-externo.jpeg') }}"
+                                alt="Teatro Santa Roza"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Cultura & História</span>
+                            <h3 class="card-title">Teatro Santa Roza</h3>
+                            <p class="card-description">
+                                Mais antigo teatro da Paraíba, conhecido pela arquitetura neoclássica e pelas apresentações artísticas no centro de João Pessoa.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                        <h3 class="card-title">Piscinas de Picãozinho</h3>
+                <a href="{{ url_for('ponto', slug='ponta-do-seixas') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/ponta-do-seixas.jpg') }}"
+                                alt="Ponta do Seixas"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Natureza</span>
+                            <span class="categoria">Aventura</span>
+                            <h3 class="card-title">Ponta do Seixas</h3>
+                            <p class="card-description">
+                                O ponto mais oriental das Américas. Aqui o sol nasce primeiro no continente. Falésias, mar azul intenso e o Farol do Cabo Branco compõem o cenário.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                        <p class="card-description">
-                            Formadas durante a maré baixa, elas encantam visitantes com águas claras, recifes e passeios de catamarã saindo da Praia de Tambaú.
-                        </p>
-                    </div>
-                </article>
+                <a href="{{ url_for('ponto', slug='praia-do-jacare') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/por-do-sol-jacare.jpg') }}"
+                                alt="Praia do Jacaré"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Natureza</span>
+                            <span class="categoria">Cultura & História</span>
+                            <span class="categoria">Aventura</span>
+                            <h3 class="card-title">Praia do Jacaré</h3>
+                            <p class="card-description">
+                                O pôr do sol mais famoso do Nordeste. Diariamente, ao som do Bolero de Ravel tocado em saxofone sobre as águas do Rio Paraíba, o sol se despede da cidade.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/praia-do-bessa.jpg') }}"
-                            alt="Praia do Bessa"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Praia & Mar</span>
-
-                        <h3 class="card-title">Praia do Bessa</h3>
-
-                        <p class="card-description">
-                            Praia mais tranquila, ideal para quem quer ambientes para passeios sossegados em família.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/map.jpg') }}"
-                            alt="Mercado de Artesanato Paraibano"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Cultura & História</span>
-                        <span class="categoria">Gastronomia</span>
-
-                        <h3 class="card-title">Mercado de Artesanato Paraibano</h3>
-
-                        <p class="card-description">
-                            Espaço tradicional de João Pessoa que reúne artesanato regional, produtos culturais e itens típicos da cultura paraibana.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/estacao-cabo-branco.jpeg') }}"
-                            alt="Estação Cabo Branco"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Cultura & História</span>
-
-                        <h3 class="card-title">Estação Cabo Branco</h3>
-
-                        <p class="card-description">
-                            Centro cultural assinado por Niemeyer com exposições, mirante e um dos mais marcantes prédios contemporâneos da Paraíba.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/centro-sfrancisco-externo.jpg') }}"
-                            alt="Centro Cultural São Francisco"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Cultura & História</span>
-
-                        <h3 class="card-title">Centro Cultural São Francisco</h3>
-
-                        <p class="card-description">
-                            Importante conjunto histórico e religioso do século XVII, com igreja dourada, claustros com azulejos portugueses e museu de arte sacra.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/hotel-globo.jpeg') }}"
-                            alt="Hotel Globo"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Cultura & História</span>
-
-                        <h3 class="card-title">Hotel Globo</h3>
-
-                        <p class="card-description">
-                            Histórico edifício do centro de João Pessoa, conhecido pela arquitetura preservada e pela vista do pôr do sol sobre o rio Sanhauá.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/mosteiro-de-sao-bento.webp') }}"
-                            alt="Mosteiro de São Bento"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Cultura & História</span>
-
-                        <h3 class="card-title">Mosteiro de São Bento</h3>
-
-                        <p class="card-description">
-                            Tradicional monumento religioso do centro histórico, conhecido pela arquitetura colonial e pela importância cultural e espiritual em João Pessoa.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/teatro-santa-roza-externo.jpeg') }}"
-                            alt="Teatro Santa Roza"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Cultura & História</span>
-
-                        <h3 class="card-title">Teatro Santa Roza</h3>
-
-                        <p class="card-description">
-                            Mais antigo teatro da Paraíba, conhecido pela arquitetura neoclássica e pelas apresentações artísticas no centro de João Pessoa.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/ponta-do-seixas.jpg') }}"
-                            alt="Ponta do Seixas"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Natureza</span>
-                        <span class="categoria">Aventura</span>
-
-                        <h3 class="card-title">Ponta do Seixas</h3>
-
-                        <p class="card-description">
-                            O ponto mais oriental das Américas. Aqui o sol nasce primeiro no continente. Falésias, mar azul intenso e o Farol do Cabo Branco compõem o cenário.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/por-do-sol-jacare.jpg') }}"
-                            alt="Praia do Jacaré"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Natureza</span>
-                        <span class="categoria">Cultura & História</span>
-                        <span class="categoria">Aventura</span>
-
-                        <h3 class="card-title">Praia do Jacaré</h3>
-
-                        <p class="card-description">
-                            O pôr do sol mais famoso do Nordeste. Diariamente, ao som do Bolero de Ravel tocado em saxofone sobre as águas do Rio Paraíba, o sol se despede da cidade.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="tourist-card">
-                    <div class="card-image-area">
-                        <img src="{{ url_for('static', filename='images/parque-lagoa.webp') }}"
-                            alt="Parque Sólon de Lucena"
-                            class="card-image">
-                    </div>
-
-                    <div class="card-content">
-                        <span class="categoria">Natureza</span>
-
-                        <h3 class="card-title">Parque Sólon de Lucena</h3>
-
-                        <p class="card-description">
-                            Tradicional área de lazer no centro de João Pessoa, conhecida pela lagoa central, áreas verdes e importância histórica para a cidade.
-                        </p>
-                    </div>
-                </article>
+                <a href="{{ url_for('ponto', slug='parque-solon-de-lucena') }}" class="card-link">
+                    <article class="tourist-card">
+                        <div class="card-image-area">
+                            <img src="{{ url_for('static', filename='images/parque-lagoa.webp') }}"
+                                alt="Parque Sólon de Lucena"
+                                class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <span class="categoria">Natureza</span>
+                            <h3 class="card-title">Parque Sólon de Lucena</h3>
+                            <p class="card-description">
+                                Tradicional área de lazer no centro de João Pessoa, conhecida pela lagoa central, áreas verdes e importância histórica para a cidade.
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
             </div>
 
