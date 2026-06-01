@@ -1,8 +1,10 @@
 {%extends "base.html" %}
-
+{%block title%}    
+    História
+{%endblock%}
 {%block content%}
-    <h1>Página principal</h1>
+    <h1>Página Histórica</h1>
     <h2>Isso é só um teste </h2>
-    <a href="{{url_for('historia')}}">Link para a página história</a>
+    <a href="{{url_for('index')}}">Link para voltar para a página principal</a>
     <a href="{{url_for('turistico')}}">Link para a página turismo</a>
 {%endblock%}
