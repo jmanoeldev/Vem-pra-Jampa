@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>João Pessoa - {% block title %}Início{% endblock %}</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=menu" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+
+  <nav class="navbar">
+    <div href="#" class="navbar__logo">
+      <div class="navbar__logo-icon">
+        <i class="ti ti-map-pin"></i> 
+      </div>
+      <p>
+        <span class="navbar__logo-text">
+          João Pessoa<span class="navbar__logo-dot">.</span>
+        </span>
+      </p>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" style="display: none;">
+    <label for="menu-toggle" id="burguer" class="material-symbols-outlined">
+      menu
+    </label>
+
+    <div class="navbar__menu-container">
+      <ul class="navbar__links">
+        <li><a href="{{ url_for('index') }}" 
+        class="navbar__link {% if request.endpoint == 'index' %}active{% endif %}">Inicial</a>
+        </li>
+
+        <li><a href="{{ url_for('historia') }}" 
+          class="navbar__link {% if request.endpoint == 'historia' %}active{% endif %}">História</a>
+        </li>
+
+        <li><a href="{{ url_for('turistico') }}" 
+          class="navbar__link {% if request.endpoint == 'turistico' %}active{% endif %}">Pontos Turísticos</a>
+        </li>
+
+        <li><a href="#" 
+          class="navbar__link {% if request.endpoint == 'destinos' %}active{% endif %}">Meus Destinos</a>
+        </li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="navbar__btn navbar__btn--entrar">Entrar</button>
+        <button class="navbar__btn navbar__btn--criar">Criar conta</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    {% block content %}
+    
+    {% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <span class="footer__logo">João Pessoa<span class="footer__logo-dot">.</span></span>
+        <p class="footer__tagline">Onde o sol nasce primeiro nas Américas.</p>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Explore</h3>
+        <ul class="footer__links">
+          <li><a href="{{url_for('index')}}" class="footer__link">Inicial</a></li>
+          <li><a href="{{url_for('historia')}}" class="footer__link">História</a></li>
+          <li><a href="{{url_for('turistico')}}" class="footer__link">Pontos Turísticos</a></li>
+          <li><a href="#" class="footer__link">Meus Destinos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Sobre</h3>
+        <p class="footer__about">
+          Projeto Interdisciplinar — IFPB Campus João Pessoa,
+          Engenharia de Software 2026.1.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 Pessoa. Feito com sol e maresia.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
