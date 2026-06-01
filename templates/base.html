@@ -32,10 +32,21 @@
 
     <div class="navbar__menu-container">
       <ul class="navbar__links">
-        <li><a href="{{url_for('index')}}" class="navbar__link">Inicial</a></li>
-        <li><a href="{{url_for('historia')}}" class="navbar__link">História</a></li>
-        <li><a href="{{url_for('turistico')}}" class="navbar__link">Pontos Turísticos</a></li>
-        <li><a href="#" class="navbar__link">Meus Destinos</a></li>
+        <li><a href="{{ url_for('index') }}" 
+        class="navbar__link {% if request.endpoint == 'index' %}active{% endif %}">Inicial</a>
+        </li>
+
+        <li><a href="{{ url_for('historia') }}" 
+          class="navbar__link {% if request.endpoint == 'historia' %}active{% endif %}">História</a>
+        </li>
+
+        <li><a href="{{ url_for('turistico') }}" 
+          class="navbar__link {% if request.endpoint == 'turistico' %}active{% endif %}">Pontos Turísticos</a>
+        </li>
+
+        <li><a href="#" 
+          class="navbar__link {% if request.endpoint == 'destinos' %}active{% endif %}">Meus Destinos</a>
+        </li>
       </ul>
 
       <div class="navbar__actions">
