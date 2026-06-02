@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
+
+.pagina-pontos {
+    --cor-primaria: #09157f;
+    --cor-secundaria: #f66b0e;
+    --cor-texto: #4d5c82;
+    --cor-titulo: #051144;
+    --cor-fundo: #fafafa;
+    --cor-card: #ffffff;
+    --cor-borda: #e8ebf5;
+
+    --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+    --container-width: 1280px;
+    --radius-card: 28px;
+    --radius-pill: 999px;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.pagina-pontos a {
+    text-decoration: none;
+}
+
+.pagina-pontos img {
+    display: block;
+    width: 100%;
+}
+
+.pagina-pontos .main-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 70px 40px 100px;
+}
+
+.pagina-pontos .hero-section {
+    max-width: 720px;
+    margin-bottom: 50px;
+}
+
+.pagina-pontos .hero-subtitle {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #0f6fc8;
+}
+
+.pagina-pontos .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    line-height: 0.95;
+    color: var(--cor-titulo);
+
+    margin-bottom: 25px;
+}
+
+.pagina-pontos .hero-title span {
+    color: var(--cor-secundaria);
+    font-style: italic;
+}
+
+.pagina-pontos .hero-descricao {
+    max-width: 650px;
+
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.pagina-pontos .filters-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: medium;
+    margin-bottom: 40px;
+}
+
+.pagina-pontos .filter-button {
+    padding: 12px 24px;
+
+    border-radius: var(--radius-pill);
+
+    background: #eef1fb;
+
+    color: #4b5d87;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+.pagina-pontos .filter-button:hover {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.pagina-pontos .filter-button.active {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.pagina-pontos .login-notice {
+    margin-bottom: 50px;
+}
+
+.pagina-pontos .login-notice-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+    padding: 22px 28px;
+
+    background: #fff5d9;
+
+    border: 1px solid #f0d27d;
+    border-radius: 22px;
+}
+
+.pagina-pontos .login-notice-text {
+    color: #5a4c18;
+    font-size: 1.5rem;
+}
+
+.pagina-pontos .login-notice-button {
+    white-space: nowrap;
+
+    background: var(--cor-secundaria);
+    color: white;
+
+    padding: 12px 24px;
+
+    border-radius: var(--radius-pill);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.pagina-pontos .cards-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 32px;
+}
+
+.pagina-pontos .tourist-card {
+    background: var(--cor-card);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--radius-card);
+
+    overflow: hidden;
+
+    box-shadow: var(--sombra-card);
+
+    transition: 0.3s ease;
+}
+
+.pagina-pontos .tourist-card:hover {
+    transform: translateY(-6px);
+}
+
+.pagina-pontos .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.pagina-pontos .card-image-area {
+    height: 280px;
+    overflow: hidden;
+}
+
+.pagina-pontos .card-image {
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.pagina-pontos .tourist-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.pagina-pontos .card-content {
+    padding: 28px;
+}
+
+.pagina-pontos .categoria {
+    display: inline-block;
+
+    margin-right: 8px;
+    margin-bottom: 10px;
+
+    padding: 6px 14px;
+
+    background: #eef1fb;
+
+    border-radius: var(--radius-pill);
+
+    color: #60719c;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.pagina-pontos .card-title {
+    margin-top: 6px;
+    margin-bottom: 14px;
+
+    font-family: 'Playfair Display', serif;
+
+    color: var(--cor-titulo);
+
+    font-size: 2.5rem;
+    line-height: 1.15;
+}
+
+.pagina-pontos .card-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+
+@media (max-width: 1100px)
+ { .pagina-pontos .cards-grid { grid-template-columns: repeat(2, 1fr); } } 
+ 
+@media (max-width: 700px)
+ { .pagina-pontos .cards-grid { grid-template-columns: 1fr; } }

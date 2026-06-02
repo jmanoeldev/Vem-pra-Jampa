@@ -9,6 +9,6 @@ def index():
 def historia():
     return render_template("historia.html")
 
-@app.route("/pontos-turisticos")
+@app.route("/pontos")
 def turistico():
-    return render_template("pontosturisticos.html")
+    return render_template("pontos.html")
