@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
 
-:root {
+.pagina-pontos {
     --cor-primaria: #09157f;
     --cor-secundaria: #f66b0e;
     --cor-texto: #4d5c82;
@@ -15,7 +15,6 @@
     --radius-card: 28px;
     --radius-pill: 999px;
 
-    font-size: 80%;
 }
 
 * {
@@ -31,69 +30,66 @@ body {
     line-height: 1.6;
 }
 
-a {
+.pagina-pontos a {
     text-decoration: none;
 }
 
-img {
+.pagina-pontos img {
     display: block;
     width: 100%;
 }
 
-
-.main-content {
+.pagina-pontos .main-content {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 70px 40px 100px;
 }
 
-
-.hero-section {
+.pagina-pontos .hero-section {
     max-width: 720px;
     margin-bottom: 50px;
 }
 
-.hero-subtitle {
+.pagina-pontos .hero-subtitle {
     display: inline-block;
     margin-bottom: 20px;
 
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 3px;
     color: #0f6fc8;
 }
 
-.hero-title {
+.pagina-pontos .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 5rem;
+    font-size: 7rem;
     line-height: 0.95;
     color: var(--cor-titulo);
 
     margin-bottom: 25px;
 }
 
-.hero-title span {
+.pagina-pontos .hero-title span {
     color: var(--cor-secundaria);
     font-style: italic;
 }
 
-.hero-descricao {
+.pagina-pontos .hero-descricao {
     max-width: 650px;
 
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 1.8;
 }
 
-
-.filters-section {
+.pagina-pontos .filters-section {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
-
+    font-size: medium;
     margin-bottom: 40px;
 }
 
-.filter-button {
+.pagina-pontos .filter-button {
     padding: 12px 24px;
 
     border-radius: var(--radius-pill);
@@ -106,23 +102,21 @@ img {
     transition: 0.25s;
 }
 
-.filter-button:hover {
+.pagina-pontos .filter-button:hover {
     background: var(--cor-primaria);
     color: white;
 }
 
-
-.filter-button.active {
+.pagina-pontos .filter-button.active {
     background: var(--cor-primaria);
     color: white;
 }
 
-
-.login-notice {
+.pagina-pontos .login-notice {
     margin-bottom: 50px;
 }
 
-.login-notice-content {
+.pagina-pontos .login-notice-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -136,11 +130,12 @@ img {
     border-radius: 22px;
 }
 
-.login-notice-text {
+.pagina-pontos .login-notice-text {
     color: #5a4c18;
+    font-size: 1.5rem;
 }
 
-.login-notice-button {
+.pagina-pontos .login-notice-button {
     white-space: nowrap;
 
     background: var(--cor-secundaria);
@@ -149,12 +144,11 @@ img {
     padding: 12px 24px;
 
     border-radius: var(--radius-pill);
-
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
-
-.cards-grid {
+.pagina-pontos .cards-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -162,8 +156,7 @@ img {
     gap: 32px;
 }
 
-
-.tourist-card {
+.pagina-pontos .tourist-card {
     background: var(--cor-card);
 
     border: 1px solid var(--cor-borda);
@@ -176,38 +169,37 @@ img {
     transition: 0.3s ease;
 }
 
-.tourist-card:hover {
+.pagina-pontos .tourist-card:hover {
     transform: translateY(-6px);
 }
 
-.card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+.pagina-pontos .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
-.card-image-area {
+.pagina-pontos .card-image-area {
     height: 280px;
     overflow: hidden;
 }
 
-.card-image {
+.pagina-pontos .card-image {
     height: 100%;
     object-fit: cover;
 
     transition: transform 0.5s ease;
 }
 
-.tourist-card:hover .card-image {
+.pagina-pontos .tourist-card:hover .card-image {
     transform: scale(1.05);
 }
 
-.card-content {
+.pagina-pontos .card-content {
     padding: 28px;
 }
 
-
-.categoria {
+.pagina-pontos .categoria {
     display: inline-block;
 
     margin-right: 8px;
@@ -221,13 +213,12 @@ img {
 
     color: #60719c;
 
-    font-size: 0.78rem;
+    font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;
 }
 
-
-.card-title {
+.pagina-pontos .card-title {
     margin-top: 6px;
     margin-bottom: 14px;
 
@@ -235,11 +226,18 @@ img {
 
     color: var(--cor-titulo);
 
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 1.15;
 }
 
-.card-description {
-    font-size: 1rem;
+.pagina-pontos .card-description {
+    font-size: 1.2rem;
     line-height: 1.8;
 }
+
+
+@media (max-width: 1100px)
+ { .cards-grid { grid-template-columns: repeat(2, 1fr); } } 
+ 
+@media (max-width: 700px)
+ { .cards-grid { grid-template-columns: 1fr; } }

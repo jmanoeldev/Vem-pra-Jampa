@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pontos Turísticos</title>
-
-    <link rel="stylesheet" href="/static/css/pontos.css">
-
-</head>
-
-<body>
-
-    <header>
-
-    </header>
-
+{%extends "base.html" %}
+{%block title%}    
+    Pontos Turisticos
+{%endblock%}
+{% block pontos_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pontos.css') }}">
+{% endblock %}
+{%block content%}
+<div class="pagina-pontos">
     <main class="main-content">
 
         <section class="hero-section">
@@ -34,34 +26,40 @@
 
         </section>
 
-        <section class="filters-section">
+       <section class="filters-section">
 
-            <a href="" class="filter-button">
+            <a href="#"
+            class="filter-button {% if categoria == 'todos' %}active-filter{% endif %}">
                 Todos
             </a>
 
-            <a href="" class="filter-button">
+            <a href="#"
+            class="filter-button {% if categoria == 'praia-mar' %}active-filter{% endif %}">
                 Praia & Mar
             </a>
 
-            <a href="" class="filter-button">
+            <a href="#"
+            class="filter-button {% if categoria == 'cultura-historia' %}active-filter{% endif %}">
                 Cultura & História
             </a>
 
-            <a href="" class="filter-button">
+            <a href="#"
+            class="filter-button {% if categoria == 'natureza' %}active-filter{% endif %}">
                 Natureza
             </a>
 
-            <a href="" class="filter-button">
+            <a href="#"
+            class="filter-button {% if categoria == 'aventuras' %}active-filter{% endif %}">
                 Aventura
             </a>
 
-            <a href="" class="filter-button">
+            <a href="#"
+            class="filter-button {% if categoria == 'gastronomia' %}active-filter{% endif %}">
                 Gastronomia
             </a>
 
         </section>
-
+        
         {% if not usuario_logado %}
 
         <section class="login-notice">
@@ -72,7 +70,7 @@
                     Faça login para comentar pontos turísticos e receber recomendações personalizadas.
                 </p>
 
-                <a href="{{ url_for('login') }}" class="login-notice-button">
+                <a href="#" class="login-notice-button">
                     Entrar ou criar conta
                 </a>
 
@@ -86,7 +84,7 @@
 
             <div class="cards-grid">
 
-                <a href="{{ url_for('ponto', slug='praia-de-tambau') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/foto-orla.webp') }}"
@@ -103,7 +101,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='praia-de-cabo-branco') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/cabo-branco.jpg') }}"
@@ -121,7 +119,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='piscinas-de-picaozinho') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/piscinas-picaozinho.webp') }}"
@@ -140,7 +138,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='praia-do-bessa') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/praia-do-bessa.jpg') }}"
@@ -157,7 +155,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='mercado-de-artesanato-paraibano') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/map.jpg') }}"
@@ -175,7 +173,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='estacao-cabo-branco') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/estacao-cabo-branco.jpeg') }}"
@@ -192,7 +190,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='centro-cultural-sao-francisco') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/centro-sfrancisco-externo.jpg') }}"
@@ -209,7 +207,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='hotel-globo') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/hotel-globo.jpeg') }}"
@@ -226,7 +224,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='mosteiro-de-sao-bento') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/mosteiro-de-sao-bento.webp') }}"
@@ -243,7 +241,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='teatro-santa-roza') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/teatro-santa-roza-externo.jpeg') }}"
@@ -260,7 +258,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='ponta-do-seixas') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/ponta-do-seixas.jpg') }}"
@@ -278,7 +276,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='praia-do-jacare') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/por-do-sol-jacare.jpg') }}"
@@ -297,7 +295,7 @@
                     </article>
                 </a>
 
-                <a href="{{ url_for('ponto', slug='parque-solon-de-lucena') }}" class="card-link">
+                <a href="#" class="card-link">
                     <article class="tourist-card">
                         <div class="card-image-area">
                             <img src="{{ url_for('static', filename='images/parque-lagoa.webp') }}"
@@ -319,6 +317,5 @@
         </section>
 
     </main>
-
-</body>
-</html>
+</div>
+{%endblock%}

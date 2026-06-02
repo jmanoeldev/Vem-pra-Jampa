@@ -1,0 +1,380 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%; /* 10px base */
+
+  /* === CORES PRINCIPAIS === */
+  --color-primary: #1e3a8a;        /* Azul escuro — logo, ícones, destaque */
+  --color-primary-hover: #162d6e;  /* Azul mais escuro — hover do primário */
+  --color-accent: #ff6017;         /* Laranja — botão 'Criar conta', pontos decorativos */
+  --color-accent-hover: #ea6c0c;   /* Laranja escuro — hover do accent */
+
+  /* === CORES DE FUNDO === */
+  --bg-page: #ffffff;              /* Fundo padrão das páginas */
+  --bg-navbar: #ffffff;            /* Fundo da navbar */
+  --bg-footer: #0d1b8e;            /* Fundo do footer */
+  --bg-btn-hover: #f3f4f6;         /* Fundo do botão 'Entrar' no hover */
+  --bg-link-hover: #cae8ff;        /* Fundo dos links da navbar no hover */
+
+  /* === CORES DE TEXTO === */
+  --text-primary: #111827;         /* Texto principal — títulos, conteúdo */
+  --text-muted: #6b7280;           /* Texto secundário — links inativos, placeholders */
+  --text-on-dark: #ffffff;         /* Texto sobre fundos escuros (footer, botão criar) */
+  --text-footer-soft: #c7d2fe;     /* Texto suave no footer — tagline, links, copyright */
+
+  /* === BORDAS === */
+  --border-light: #e5e7eb;         /* Borda inferior da navbar */
+  --border-footer: #1e2fa3;        /* Divisor interno do footer */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: 8.4rem;
+  background-color: var(--bg-navbar);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+#burguer,
+#menu-toggle {
+  display: none;
+}
+
+.navbar__menu-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* --- Logo --- */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 10;
+}
+
+.navbar__logo-icon {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 1rem;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-on-dark);
+  font-size: 1.8rem;
+}
+
+.navbar__logo-text {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: -0.3px;
+}
+
+.navbar__logo-dot {
+  color: var(--color-accent);
+}
+
+/* --- Links centrados (desktop) --- */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 40rem);
+  white-space: nowrap;
+}
+
+.navbar__link {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border-radius: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.navbar__link:hover {
+  background-color: var(--bg-link-hover);
+  color: var(--text-primary);
+}
+
+.navbar__link.active {
+  background-color: var(--color-primary);
+  color: var(--text-on-dark);
+}
+
+/* --- Botões de ação --- */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.navbar__btn {
+  padding: 1rem 1.5rem;
+  border-radius: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.navbar__btn--entrar {
+  background-color: transparent;
+  color: var(--text-muted);
+}
+
+.navbar__btn--entrar:hover {
+  background-color: var(--bg-btn-hover);
+  color: var(--text-primary);
+}
+
+.navbar__btn--entrar:active {
+  transform: scale(0.97);
+}
+
+.navbar__btn--criar {
+  background-color: var(--color-accent);
+  color: var(--text-on-dark);
+}
+
+.navbar__btn--criar:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.navbar__btn--criar:active {
+  transform: scale(0.97);
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.footer {
+  background-color: var(--bg-footer);
+  color: var(--text-on-dark);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 3rem 6rem;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 32rem;
+}
+
+.footer__logo {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  letter-spacing: -0.3px;
+}
+
+.footer__logo-dot {
+  color: var(--color-accent);
+}
+
+.footer__tagline {
+  font-size: 1.6rem;
+  color: var(--text-footer-soft);
+  line-height: 1.6;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-width: 16rem;
+}
+
+.footer__heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  margin-bottom: 4px;
+}
+
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer__link {
+  font-size: 1.6rem;
+  color: var(--text-footer-soft);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer__link:hover {
+  color: var(--text-on-dark);
+}
+
+.footer__about {
+  font-size: 1.6rem;
+  color: var(--text-footer-soft);
+  line-height: 1.7;
+  max-width: 28rem;
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--border-footer);
+  padding: 1.2rem 6rem;
+  text-align: center;
+}
+
+.footer__copy {
+  font-size: 1.2rem;
+  color: var(--text-footer-soft);
+}
+
+/* =====================
+   RESPONSIVO — MOBILE
+   ===================== */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 2rem;
+    overflow: visible;
+  }
+
+  #burguer {
+    display: block;
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+    z-index: 10;
+  }
+
+  #burguer:active {
+    transform: scale(0.9);
+  }
+
+  .navbar__menu-container {
+    position: absolute;
+    top: 8.4rem;
+    left: 0;
+    width: 100vw;
+    background-color: var(--bg-navbar);
+    flex-direction: column;
+    padding: 3rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+    pointer-events: none;
+  }
+
+  #menu-toggle:checked ~ .navbar__menu-container {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navbar__links {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    white-space: normal;
+  }
+
+  .navbar__link {
+    width: 100%;
+    text-align: center;
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .navbar__actions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .navbar__btn {
+    width: 100%;
+  }
+
+  /* Footer mobile */
+  .footer__content {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .footer__brand {
+    max-width: 100%;
+  }
+
+  .footer__col {
+    min-width: unset;
+  }
+
+  .footer__about {
+    max-width: 100%;
+  }
+
+  .footer__bottom {
+    padding: 1.2rem 1.5rem;
+  }
+}
