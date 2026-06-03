@@ -3,8 +3,218 @@
     História
 {%endblock%}
 {%block css_extra %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/historia.css') }}">
 {% endblock %}
-{%block content%}
 
+{%block content%}
+<body>
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-conteudo">
+
+        <p class="hero-subtitulo">Quatro séculos à beira-mar</p>
+        <h1 class="hero-titulo">A história de <span class="texto-destaque">João Pessoa</span>.</h1>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="introducao">
+
+    <div class="container">
+
+      <p class="introducao-texto">João Pessoa nasceu entre o rio e o oceano, marcada desde o início pela função estratégica de proteger o litoral nordestino. Ao longo de mais de quatro séculos, atravessou invasões, mudanças de nome, disputas políticas e transformações urbanas sem perder sua essência histórica. Entre igrejas barrocas, ruas coloniais, manguezais e praias atlânticas, a capital paraibana preserva uma identidade construída pela mistura entre herança portuguesa, presença holandesa, cultura popular nordestina e modernidade urbana.</p>
+
+      <div class="cabecalho-historia">
+
+        <p class="historia-subtitulo">Linha do tempo</p>
+        <h2 class="historia-titulo">Marcos históricos de João Pessoa</h2>
+
+      </div>
+      
+      <div class="linha-tempo">
+
+        <div class="linha-item">
+
+          <div class="linha-ponto"></div>
+
+          <div class="linha-conteudo">
+
+            <h2 class="linha-ano">1585</h2>
+            <h3 class="linha-titulo">Fundação</h3>
+            <p class="linha-texto">Fundada em 5 de agosto de 1585 com o nome de Filipeia de Nossa Senhora das Neves, a cidade surgiu às margens do Rio Sanhauá como parte da estratégia portuguesa de ocupação e defesa do litoral nordestino. Sua localização permitia controlar o acesso marítimo e fortalecer a presença colonial na região, marcada por conflitos com povos indígenas e disputas territoriais europeias.</p>
+
+          </div>
+
+        </div>
+
+        <div class="linha-item">
+
+          <div class="linha-ponto"></div>
+
+          <div class="linha-conteudo">
+
+            <h2 class="linha-ano">1634</h2>
+            <h3 class="linha-titulo">Invasão holandesa</h3>
+            <p class="linha-texto">Durante a invasão holandesa no Nordeste, a cidade foi conquistada pela Companhia das Índias Ocidentais e passou a se chamar Frederica, em homenagem ao príncipe Frederico Henrique de Orange. O período holandês trouxe mudanças administrativas, comerciais e militares, inserindo a cidade em um contexto internacional ligado ao comércio do açúcar e às disputas coloniais do século XVII.</p>
+
+          </div>
+
+        </div>
+
+        <div class="linha-item">
+
+          <div class="linha-ponto"></div>
+
+          <div class="linha-conteudo">
+
+            <h2 class="linha-ano">1654</h2>
+            <h3 class="linha-titulo">Reconquista</h3>
+            <p class="linha-texto">Com a retomada portuguesa em 1654, a cidade voltou a se chamar Parahyba e iniciou um período de crescimento econômico e religioso. Igrejas, conventos e casarões coloniais passaram a ocupar o centro urbano, consolidando uma forte herança barroca ainda presente na arquitetura histórica da cidade. O desenvolvimento da atividade açucareira impulsionou a expansão urbana e fortaleceu a influência cultural portuguesa na região.</p>
+
+          </div>
+
+        </div>
+
+        <div class="linha-item">
+
+          <div class="linha-ponto"></div>
+
+          <div class="linha-conteudo">
+
+            <h2 class="linha-ano">1930</h2>
+            <h3 class="linha-titulo">João Pessoa</h3>
+            <p class="linha-texto">Em 1930, a cidade recebeu o nome João Pessoa em homenagem ao então presidente da Paraíba, assassinado durante um período de forte tensão política nacional. O episódio tornou-se um dos marcos da Revolução de 1930 e redefiniu simbolicamente a identidade da capital paraibana, associando seu nome à memória política e republicana do país.</p>
+
+          </div>
+
+        </div>
+
+        <div class="linha-item">
+
+          <div class="linha-ponto"></div>
+
+          <div class="linha-conteudo">
+
+            <h2 class="linha-ano">Atualidade</h2>
+            <h3 class="linha-titulo">Cidade verde</h3>
+            <p class="linha-texto">Hoje, João Pessoa combina patrimônio histórico, preservação ambiental e crescimento urbano. Reconhecida pelas áreas verdes, pelo litoral preservado e pelo centro histórico colonial, a cidade se destaca por equilibrar tradição e modernidade. Entre o casario antigo, a cultura nordestina e a vida à beira-mar, mantém viva uma identidade marcada pela história e pela relação com a natureza.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="destaques-culturais">
+
+    <div class="container">
+
+        <div class="cabecalho-historia">
+
+            <p class="historia-subtitulo">Conheça a cidade</p>
+            <h2 class="historia-titulo">Destaques culturais de João Pessoa</h2>
+
+        </div>
+
+        <article class="destaque-item">
+
+            <div class="destaque-imagem">
+                <img src="static/images/farol-do-cabo-branco.jpg" alt="Farol do Cabo Branco">
+            </div>
+
+            <div class="destaque-conteudo">
+
+                <p class="destaque-categoria">Geografia</p>
+                <h3 class="destaque-titulo">O <span>ponto mais oriental</span> das Américas.</h3>
+                <p class="destaque-texto">Conhecido como o lugar onde o sol nasce primeiro no continente americano, a Ponta do Seixas e o Farol do Cabo Branco representam a singularidade geográfica de João Pessoa. O farol, com sua arquitetura cilíndrica e asas que lembram uma planta sisaleira, simboliza a união entre a modernidade e a força natural do litoral paraibano.</p>
+
+            </div>
+
+        </article>
+
+        <article class="destaque-item destaque-reverso">
+
+            <div class="destaque-imagem">
+                <img src="static/images/praca-antenor-navarro.jpg" alt="Praça Antenor Navarro">
+            </div>
+
+            <div class="destaque-conteudo">
+
+                <p class="destaque-categoria">Patrimônio</p>
+                <h3 class="destaque-titulo">O <span>colorido vibrante</span> da praça Antenor Navarro.</h3>
+                <p class="destaque-texto">​Com seus casarões geminados do início do século XX, a praça é o coração pulsante da boemia e da cultura no Centro Histórico. Os tons marcantes de suas fachadas, que misturam traços do ecletismo e da art nouveau, guardam o passado comercial da antiga "Cidade Alta" e hoje servem de palco para artistas locais e manifestações artísticas.</p>
+
+            </div>
+
+        </article>
+
+        <article class="destaque-item">
+
+            <div class="destaque-imagem">
+                <img src="static/images/la-ursa.jpg" alt="La Ursa">
+            </div>
+
+            <div class="destaque-conteudo">
+
+                <p class="destaque-categoria">Cultura popular</p>
+                <h3 class="destaque-titulo">O <span>cortejo irreverente</span> dos Ursos de Carnaval.</h3>
+                <p class="destaque-texto">​Conhecida tradicionalmente como "La Ursa", essa manifestação popular é um dos maiores patrimônios do carnaval de rua de João Pessoa. Misturando teatro, música e dança, os grupos saem pelas comunidades com máscaras artesanais e fantasias de pelúcia, dançando ao som de marchinhas e do estalar dos zabumbas para arrecadar moedas, mantendo viva uma brincadeira que atravessa gerações.</p>
+
+            </div>
+
+        </article>
+
+        <article class="destaque-item destaque-reverso">
+
+            <div class="destaque-imagem">
+                <img src="static/images/rubacao.webp" alt="Rubacão">
+            </div>
+
+            <div class="destaque-conteudo">
+
+                <p class="destaque-categoria">Gastronomia</p>
+                <h3 class="destaque-titulo">A <span>cremosidade sertaneja</span> do Rubacão.</h3>
+                <p class="destaque-texto">​Nascido no interior e consagrado nas mesas da capital, o rubacão é a expressão máxima da identidade gastronômica paraibana. Esta variação sofisticada do baião-de-dois une o feijão-verde e o arroz a uma base cremosa de leite, nata e queijo coalho, finalizada com cubos de carne de sol, transformando ingredientes simples em um banquete de texturas e história.</p>
+
+            </div>
+
+        </article>
+
+        <article class="destaque-item">
+
+            <div class="destaque-imagem">
+                <img src="static/images/mata-do-buraquinho.webp" alt="Mata do Buraquinho">
+            </div>
+
+            <div class="destaque-conteudo">
+
+                <p class="destaque-categoria">Natureza</p>
+                <h3 class="destaque-titulo">O <span>coração verde</span> da Mata do Buraquinho.</h3>
+                <p class="destaque-texto">Reconhecida como um dos maiores refúgios urbanos de Mata Atlântica do país, essa imensa reserva florestal funciona como o verdadeiro pulmão de João Pessoa. Cortado pelas águas do Rio Jaguaribe, o santuário preserva árvores centenárias, trilhas ecológicas e uma rica biodiversidade, simbolizando o compromisso histórico da capital em crescer em perfeita harmonia com o meio ambiente.</p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
 {%endblock%}
