@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vem pra Jampa</title>
-</head>
-<body>
-    <main>
+{%extends "base.html" %}
+{%block title%}    
+    Vem pra Jampa
+{%endblock%}
+{% block css_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+{%block content%}
         <section id="hero">
             <div class="background">
                 <img src="/static/images/background.webp" alt="Vista da Praia de Tambaú">
@@ -80,6 +79,4 @@
                 </div>
             </div>
         </section>
-    </main>
-</body>
-</html>
+    {% endblock %}
