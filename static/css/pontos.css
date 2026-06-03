@@ -157,11 +157,11 @@ body {
 }
 
 .pagina-pontos .tourist-card {
+    display: flex;
+    flex-direction: column;
     background: var(--cor-card);
-
     border: 1px solid var(--cor-borda);
     border-radius: var(--radius-card);
-
     overflow: hidden;
 
     box-shadow: var(--sombra-card);
@@ -174,9 +174,25 @@ body {
 }
 
 .pagina-pontos .card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    display: inline-block;
+    margin-top: auto;
+    align-self: center;
+    padding: 10px 20px;
+
+    background: var(--cor-primaria);  /* #09157f */
+    color: white;
+
+    border-radius: var(--radius-pill);
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.pagina-pontos .card-link:hover {
+    background: #0f6fc8;
+    transform: translateX(3px);
 }
 
 .pagina-pontos .card-image-area {
@@ -197,11 +213,19 @@ body {
 
 .pagina-pontos .card-content {
     padding: 28px;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
 }
 
+.pagina-pontos .categorias {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .pagina-pontos .categoria {
     display: inline-block;
-
+    width: fit-content;
     margin-right: 8px;
     margin-bottom: 10px;
 
@@ -221,7 +245,7 @@ body {
 .pagina-pontos .card-title {
     margin-top: 6px;
     margin-bottom: 14px;
-
+    align-self: center;
     font-family: 'Playfair Display', serif;
 
     color: var(--cor-titulo);
