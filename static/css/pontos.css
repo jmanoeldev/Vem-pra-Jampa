@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
+/* Fontes herdadas do style.css:
+   Títulos → Cormorant Garamond
+   Textos  → Outfit
+*/
 
 .pagina-pontos {
     --cor-primaria: #09157f;
@@ -24,7 +27,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Outfit', sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
@@ -61,7 +64,7 @@ body {
 }
 
 .pagina-pontos .hero-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 7rem;
     line-height: 0.95;
     color: var(--cor-titulo);
@@ -246,7 +249,7 @@ body {
     margin-top: 6px;
     margin-bottom: 14px;
     align-self: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
 
     color: var(--cor-titulo);
 
