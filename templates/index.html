@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vem pra Jampa</title>
+</head>
+<body>
+    <main>
 {%extends "base.html" %}
 {%block title%}    
     Vem pra Jampa
@@ -7,35 +16,36 @@
 {% endblock %}
 {%block content%}
         <section id="hero">
-            <div class="background">
-                <img src="/static/images/background.webp" alt="Vista da Praia de Tambaú">
-            </div>
+            <img class="hero-img" src="/static/images/background.webp" alt="Vista da Praia de Tambaú">
             <div class="background-sobreposicao"></div>
             <div class="hero-conteudo">
-                <p>ONDE O SOL NASCE PRIMEIRO</p>
+                <span class="badge">Onde o sol nasce primeiro</span>
                 <h1>João Pessoa <span>à beira-mar</span> do tempo</h1>
                 <p>Capital da Paraíba, sete vezes secular, com a orla mais verde do Brasil e um centro histórico tombado pelo IPHAN.</p>
                 <div class="hero-links">
-                    <a href="pontos" class="botao-pontos">Ver Pontos Turísticos</a>
-                    <a href="historia.html" class="botao-historia">Conheça a História</a>
+                    <a href="{{ url_for('turistico')}}" class="botao" id="botao-pontos">Ver Pontos Turísticos</a>
+                    <a href="{{ url_for ('historia')}}" class="botao" id="botao-historia">Conheça a História</a>
                 </div>
             </div>
         </section>
         <section id="links-rapidos">
             <div class="link-pag">
+                <img id="praias" src="/static/images/praias-paradisiacas-waves-branco.svg" alt="">
                 <h2>Praias paradisíacas</h2>
                 <p>Tambaú, Cabo Branco, Bessa e as piscinas naturais.</p>
-                <a href="pontos.html"><span class="explorar">Explorar</span> <span class="seta"><img src="/static/images/seta.svg" alt=""></span></a>
+                <a href="{{ url_for('turistico') }}"><span class="explorar">Explorar</span> <span class="seta"><img src="/static/images/arrow-sm-right-svgrepo-com.svg" alt=""></span></a>
             </div>
             <div class="link-pag">
+                <img id="centro" src="/static/images/centro-historico-landmark-branco.svg" alt="">
                 <h2>Centro histórico</h2>
                 <p>Igrejas barrocas, casarões e o convento de São Francisco.</p>
-                <a href="historia.html"><span class="explorar">Explorar</span> <span class="seta"><img src="/static/images/seta.svg" alt=""></span></a>
+                <a href="{{ url_for('historia') }}"><span class="explorar">Explorar</span> <span class="seta"><img src="/static/images/arrow-sm-right-svgrepo-com.svg" alt=""></span></a>
             </div>
             <div class="link-pag">
+                <img id="ponta" src="/static/images/ponta-do-seixas-sunrise-branco.svg" alt="">
                 <h2>Ponta do Seixas</h2>
                 <p>O extremo oriental das Américas.</p>
-                <a href="pontos.html"><span class="explorar">Explorar</span> <span class="seta"><img src="/static/images/seta.svg" alt=""></span></a>
+                <a href="{{ url_for('turistico') }}"><span class="explorar">Explorar</span> <span class="seta"><img src="/static/images/arrow-sm-right-svgrepo-com.svg" alt=""></span></a>
             </div>
         </section>
         <section id="sobre">
@@ -68,14 +78,16 @@
             </div>
         </section>
         <section id="sugest-destinos">
-            <h1>Monte sua viagem com <span>Meus Destinos</span>.</h1>
-            <p>Crie uma conta para receber recomendações personalizadas de acordo com seu jeito de viajar.</p>
-            <div class="sugest-botoes">
-                <div class="login">
-                    <a href="login.html">Criar sua conta</a>
-                </div>
-                <div class="destinos">
-                    <a href="destinos.html">Ver Meus Destinos</a>
+            <div class="sugest-destinos-cont">
+                <h1>Monte sua viagem com <span>Meus Destinos</span>.</h1>
+                <p>Crie uma conta para receber recomendações personalizadas de acordo com seu jeito de viajar.</p>
+                <div class="sugest-botoes">
+                    <div class="login">
+                        <a href="login.html">Criar sua conta</a>
+                    </div>
+                    <div class="destinos">
+                        <a href="destinos.html">Ver Meus Destinos</a>
+                    </div>
                 </div>
             </div>
         </section>
