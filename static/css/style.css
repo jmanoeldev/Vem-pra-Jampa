@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -39,11 +41,15 @@ html, body {
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg-page);
+  font-family: 'Outfit', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/* Hierarquia de títulos global */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .main-content {
@@ -194,7 +200,7 @@ body {
 .footer {
   background-color: var(--bg-footer);
   color: var(--text-on-dark);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .footer__content {
