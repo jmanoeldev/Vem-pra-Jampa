@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cadastro
+{% endblock %}
+
+{% block css_extra %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="pagina-cadastro">
+
+    <section class="container-autenticacao">
+
+        <div class="painel-apresentacao">
+
+            <div class="conteudo-apresentacao">
+
+                <h1 class="titulo-apresentacao">Inicie a sua jornada por <span>João Pessoa</span>.</h1>
+                <p class="texto-apresentacao">Explore praias, cultura, gastronomia e experiências únicas. Compartilhe opiniões, avalie destinos e ajude outros viajantes a descobrir o melhor da cidade.</p>
+
+            </div>
+
+        </div>
+
+        <div class="painel-formulario">
+
+            <div class="alternador-formularios">
+
+                <a href="{{ url_for('login') }}" class="botao-alternador">Entrar</a>
+                <a href="{{ url_for('cadastro') }}" class="botao-alternador ativo">Criar conta</a>
+
+            </div>
+
+            <div class="cabecalho-formulario">
+
+                <h2 class="titulo-formulario">Bem-vindo à João Pessoa</h2>
+                <p class="subtitulo-formulario">Crie uma conta e descubra tudo o que João Pessoa tem a oferecer.</p>
+
+            </div>
+
+            <form class="formulario-cadastro" method="POST">
+
+                <div class="grupo-campo">
+
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" minlength="3" maxlength="100" required>
+
+                </div>
+
+                <div class="grupo-campo">
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+
+                </div>
+
+                <div class="grupo-campo">
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" minlength="8" required>
+
+                </div>
+
+                <button type="submit" class="botao-principal">Criar conta</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

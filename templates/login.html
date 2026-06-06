@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block css_extra %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="pagina-login">
+
+    <section class="container-autenticacao">
+
+        <div class="painel-apresentacao">
+
+            <div class="conteudo-apresentacao">
+
+                <h1 class="titulo-apresentacao">Sua viagem começa <span>aqui.</span></h1>
+                <p class="texto-apresentacao">Seus lugares favoritos, roteiros personalizados e experiências inesquecíveis esperam por você.</p>
+
+            </div>
+
+        </div>
+
+        <div class="painel-formulario">
+
+            <div class="alternador-formularios">
+
+                <a href="{{ url_for('login') }}" class="botao-alternador ativo">Entrar</a>
+                <a href="{{ url_for('cadastro') }}" class="botao-alternador">Criar conta</a>
+
+            </div>
+
+            <div class="cabecalho-formulario">
+
+                <h2 class="titulo-formulario">Bem-vindo de volta</h2>
+                <p class="subtitulo-formulario">Acesse sua conta e continue explorando os melhores destinos de João Pessoa.</p>
+
+            </div>
+
+            <form class="formulario-login" method="POST">
+
+                <div class="grupo-campo">
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+
+                </div>
+
+                <div class="grupo-campo">
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" minlength="8" required>
+
+                </div>
+
+                <button type="submit" class="botao-principal">Entrar</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
