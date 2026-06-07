@@ -12,3 +12,11 @@ def historia():
 @app.route("/pontos")
 def turistico():
     return render_template("pontos.html")
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html')
