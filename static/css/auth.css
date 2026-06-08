@@ -42,7 +42,7 @@ html {
         rgba(11, 67, 140, 0.82),
         rgba(18, 122, 196, 0.70)
         ),
-        url(/static/images/painel-apresentação01.webp);
+        url(/static/images/painel-apresentação01.png);
 }
 
 .painel-cadastro {
@@ -52,7 +52,7 @@ html {
         rgba(11, 67, 140, 0.82),
         rgba(18, 122, 196, 0.70)
         ),
-        url(/static/images/painel-apresentação01.webp);
+        url(/static/images/painel-apresentação01.png);
 }
 
 .conteudo-apresentacao {
