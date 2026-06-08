@@ -34,8 +34,8 @@
 
             <div class="alternador-formularios">
 
-                <a href="{{ url_for('login') }}" class="botao-alternador ativo">Entrar</a>
-                <a href="{{ url_for('cadastro') }}" class="botao-alternador">Criar conta</a>
+                <a href="{{ url_for('auth.login') }}" class="botao-alternador ativo">Entrar</a>
+                <a href="{{ url_for('auth.register') }}" class="botao-alternador">Criar conta</a>
 
             </div>
 
@@ -45,6 +45,14 @@
                 <p class="subtitulo-formulario">Acesse sua conta e continue explorando os melhores destinos de João Pessoa.</p>
 
             </div>
+
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for categoria, message in messages %}
+                        <p class="{{ categoria }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
 
             <form class="formulario-login" method="POST">
 
@@ -57,8 +65,8 @@
 
                 <div class="grupo-campo">
 
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" minlength="8" required>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" minlength="8" required>
 
                 </div>
 

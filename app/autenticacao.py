@@ -6,19 +6,19 @@ from app.utils import salvar_usuario, buscar_email
 auth = Blueprint('auth', __name__)
 
 @auth.route('/register', methods=['GET', 'POST'])
-def registrar():
+def register():
     if request.method=='POST':
         username=request.form.get('username')
         email=request.form.get('email')
         password=request.form.get('password')
 
         if buscar_email(email):
-            flash('Este email já foi cadastrado.')
-            return redirect(url_for('auth.register'))
+            flash('Este email já foi cadastrado.', "erro")
+            return render_template('cadastro.html')
         
         password_hash = generate_password_hash(password)
         salvar_usuario(username, email, password_hash)
-        flash('Castro realizado com sucesso!')
+        flash('Castro realizado com sucesso!', "sucesso")
         return redirect(url_for('auth.login'))
             
     return render_template('cadastro.html')
@@ -33,7 +33,7 @@ def login():
 
         if not usuario or not check_password_hash(usuario['password_hash'], password):
             flash('Email ou senha incorretos.')
-            return redirect(url_for('index'))
+            return redirect(url_for('auth.login'))
         
         session['usuario']=usuario['username']
         return redirect(url_for('index'))
