@@ -10,27 +10,27 @@
   font-size: 62.5%; /* 10px base */
 
   /* === CORES PRINCIPAIS === */
-  --color-primary: #1e3a8a;        /* Azul escuro — logo, ícones, destaque */
-  --color-primary-hover: #162d6e;  /* Azul mais escuro — hover do primário */
-  --color-accent: #ff6017;         /* Laranja — botão 'Criar conta', pontos decorativos */
+  --color-primary: #1e3a8a;   /* Azul escuro — logo, ícones, destaque */
+  --color-primary-hover: #162d6e; /* Azul mais escuro — hover do primário */
+  --color-accent: #ff6017;  /* Laranja — botão 'Criar conta', pontos decorativos */
   --color-accent-hover: #ea6c0c;   /* Laranja escuro — hover do accent */
 
   /* === CORES DE FUNDO === */
-  --bg-page: #ffffff;              /* Fundo padrão das páginas */
-  --bg-navbar: #ffffff;            /* Fundo da navbar */
-  --bg-footer: #0d1b8e;            /* Fundo do footer */
-  --bg-btn-hover: #f3f4f6;         /* Fundo do botão 'Entrar' no hover */
-  --bg-link-hover: #cae8ff;        /* Fundo dos links da navbar no hover */
+  --bg-page: #ffffff; /* Fundo padrão das páginas */
+  --bg-navbar: #ffffff; /* Fundo da navbar */
+  --bg-footer: #0d1b8e; /* Fundo do footer */
+  --bg-btn-hover: #f3f4f6; /* Fundo do botão 'Entrar' no hover */
+  --bg-link-hover: #cae8ff;  /* Fundo dos links da navbar no hover */
 
   /* === CORES DE TEXTO === */
-  --text-primary: #111827;         /* Texto principal — títulos, conteúdo */
-  --text-muted: #6b7280;           /* Texto secundário — links inativos, placeholders */
-  --text-on-dark: #ffffff;         /* Texto sobre fundos escuros (footer, botão criar) */
-  --text-footer-soft: #c7d2fe;     /* Texto suave no footer — tagline, links, copyright */
+  --text-primary: #111827;  /* Texto principal — títulos, conteúdo */
+  --text-muted: #6b7280; /* Texto secundário — links inativos, placeholders */
+  --text-on-dark: #ffffff;  /* Texto sobre fundos escuros (footer, botão criar) */
+  --text-footer-soft: #c7d2fe;  /* Texto suave no footer — tagline, links, copyright */
 
   /* === BORDAS === */
-  --border-light: #e5e7eb;         /* Borda inferior da navbar */
-  --border-footer: #1e2fa3;        /* Divisor interno do footer */
+  --border-light: #e5e7eb;  /* Borda inferior da navbar */
+  --border-footer: #1e2fa3; /* Divisor interno do footer */
 }
 
 html, body {
@@ -57,12 +57,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =====================
-   NAVBAR
+   NAVBAR (DESKTOP)
    ===================== */
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   padding: 0 4rem;
   height: 8.4rem;
   background-color: var(--bg-navbar);
@@ -71,14 +71,15 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-#burguer,
-#menu-toggle {
+/* Elementos do Menu Hambúrguer escondidos no Desktop */
+#burguer, #menu-toggle, .navbar__actions--dropdown {
   display: none;
 }
 
 .navbar__menu-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
 }
 
@@ -89,6 +90,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.8rem;
   position: relative;
   z-index: 10;
+  white-space: nowrap; /* Impede a logo de quebrar linha */
 }
 
 .navbar__logo-icon {
@@ -114,16 +116,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-accent);
 }
 
-/* --- Links centrados (desktop) --- */
+/* --- Links --- */
 .navbar__links {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   list-style: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: calc(100% - 40rem);
   white-space: nowrap;
 }
 
@@ -153,8 +151,6 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  position: relative;
-  z-index: 10;
 }
 
 .navbar__btn {
@@ -195,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =====================
-   FOOTER
+   FOOTER (DESKTOP)
    ===================== */
 .footer {
   background-color: var(--bg-footer);
@@ -284,35 +280,42 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-footer-soft);
 }
 
-/* =====================
-   RESPONSIVO — MOBILE
-   ===================== */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
 
   .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 2rem;
     overflow: visible;
   }
 
+  /* Exibe e formata o Ícone Hambúrguer */
   #burguer {
     display: block;
     font-size: 3.5rem;
     color: var(--color-primary);
     cursor: pointer;
     transition: transform 0.2s;
-    position: relative;
-    z-index: 10;
   }
 
   #burguer:active {
     transform: scale(0.9);
   }
 
+  /* Oculta APENAS os botões da barra principal (desktop) */
+  .navbar__actions--desktop .navbar__btn--entrar,
+  .navbar__actions--desktop .navbar__btn--criar {
+    display: none;
+  }
+
+  /* Container do dropdown suspenso */
   .navbar__menu-container {
     position: absolute;
     top: 8.4rem;
     left: 0;
-    width: 100vw;
+    right: 0;
+    width: auto;
     background-color: var(--bg-navbar);
     flex-direction: column;
     padding: 3rem 2rem;
@@ -323,10 +326,11 @@ h1, h2, h3, h4, h5, h6 {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-15px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     pointer-events: none;
   }
 
+  /* Exibe o menu suspenso quando o checkbox é ativado */
   #menu-toggle:checked ~ .navbar__menu-container {
     visibility: visible;
     opacity: 1;
@@ -334,6 +338,7 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: auto;
   }
 
+  /* Links internos empilhados verticalmente */
   .navbar__links {
     position: static;
     transform: none;
@@ -351,33 +356,37 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem;
   }
 
-  .navbar__actions {
+  /* Exibe os botões originais (Entrar/Criar) DENTRO do dropdown suspenso */
+  .navbar__actions--dropdown {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 1rem;
     margin-top: 2rem;
   }
 
-  .navbar__btn {
+  .navbar__actions--dropdown .navbar__btn {
+    display: block;
     width: 100%;
+    text-align: center;
   }
 
-  /* Footer mobile */
+  /* =====================
+     FOOTER (MOBILE)
+     ===================== */
   .footer__content {
     flex-direction: column;
     padding: 2rem 1.5rem;
     gap: 2rem;
   }
 
-  .footer__brand {
+  .footer__brand,
+  .footer__about {
     max-width: 100%;
   }
 
   .footer__col {
     min-width: unset;
-  }
-
-  .footer__about {
-    max-width: 100%;
   }
 
   .footer__bottom {
