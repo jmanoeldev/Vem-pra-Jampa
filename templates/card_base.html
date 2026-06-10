@@ -1,10 +1,142 @@
-{%extends "base.html" %}
-{%block title%}    
-    João Pessoa
-{%endblock%}
-{%block css_extra %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
-{% endblock %}
-{%block content%}
+{% extends "base.html" %}
 
-{%endblock%}
+{% block title %}
+    {{ ponto.nome }}
+{% endblock %}
+
+{% block css_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="detalhe__hero" >
+  <div class="detalhe__hero-overlay">
+    <div class="detalhe__hero-content">
+      <span class="detalhe__badge">{{ ponto.categoria }}</span>
+      <h1 class="detalhe__titulo">{{ ponto.nome }}</h1>
+      <div class="detalhe__meta">
+        <div class="detalhe__estrelas">
+          {% for i in range(5) %}
+            {% if i < ponto.avaliacao|int %}
+              <i class="ti ti-star-filled"></i>
+            {% else %}
+              <i class="ti ti-star"></i>
+            {% endif %}
+          {% endfor %}
+          <span>{{ ponto.avaliacao }}</span>
+        </div>
+        <span class="detalhe__endereco">
+          <i class="ti ti-map-pin"></i> {{ ponto.endereco }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEÚDO -->
+<section class="detalhe__corpo">
+  <div class="detalhe__principal">
+
+    <!-- Sobre -->
+    <div class="detalhe__card">
+      <h2 class="detalhe__secao-titulo">Sobre o local</h2>
+      <p class="detalhe__descricao">{{ ponto.descricao }}</p>
+    </div>
+
+    <!-- Dicas -->
+    <div class="detalhe__card detalhe__card--dicas">
+      <h2 class="detalhe__secao-titulo">
+        <i class="ti ti-sun"></i> Dicas de visita
+      </h2>
+      <ul class="detalhe__dicas-lista">
+        {% for dica in ponto.dicas %}
+          <li class="detalhe__dica-item">
+            <i class="ti ti-check"></i> {{ dica }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Comentários -->
+    <div class="detalhe__card">
+      <h2 class="detalhe__secao-titulo">
+        <i class="ti ti-message"></i> Comentários ({{ comentarios|length }})
+      </h2>
+
+      {% if 'usuario' in session %}
+        
+        <div class="detalhe__formulario-container">
+          <h3 class="detalhe__formulario-titulo">Deixe sua opinião</h3>
+          <form action="{{ url_for('comentar', ponto_id=ponto.id) }}" method="POST">
+            
+            <div class="detalhe__form-grupo">
+              <label for="autor" class="detalhe__form-label">Seu Nome:</label>
+              <input type="text" id="autor" name="autor" value="{{ session['usuario'] }}" required readonly class="detalhe__form-input detalhe__form-input--readonly">
+            </div>
+            
+            <div class="detalhe__form-grupo">
+              <label for="texto" class="detalhe__form-label">Mensagem:</label>
+              <textarea id="texto" name="texto" rows="4" required class="detalhe__form-textarea"></textarea>
+            </div>
+            
+            <button type="submit" class="detalhe__form-btn">Publicar Comentário</button>
+          </form>
+        </div>
+
+      {% else %}
+
+        <div class="detalhe__login-aviso">
+          <i class="ti ti-lock"></i>
+          <p><a href="{{ url_for('auth.login') }}" class="detalhe__login-link">Faça login</a> para deixar seu comentário sobre este local.</p>
+        </div>
+
+      {% endif %}
+
+      <div class="detalhe__comentarios">
+        {% for comentario in comentarios %}
+          <div class="detalhe__comentario">
+            <div class="detalhe__comentario-avatar">
+              {{ comentario.autor[0]|upper }}
+            </div>
+            <div class="detalhe__comentario-corpo">
+              <div class="detalhe__comentario-header">
+                <strong>{{ comentario.autor }}</strong>
+                <span class="detalhe__comentario-data">{{ comentario.data }}</span>
+              </div>
+              <p class="detalhe__comentario-texto">{{ comentario.texto }}</p>
+            </div>
+          </div>
+        {% else %}
+          <p class="detalhe__sem-comentarios">Nenhum comentário ainda. Seja o primeiro!</p>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="detalhe__sidebar">
+
+    <div class="detalhe__card">
+      <h3 class="detalhe__sidebar-titulo">Informações</h3>
+      <ul class="detalhe__info-lista">
+        <li><i class="ti ti-map-pin"></i> {{ ponto.endereco }}</li>
+        {% if ponto.horario %}
+          <li><i class="ti ti-sun"></i> {{ ponto.horario }}</li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="detalhe__card detalhe__card--cta">
+      <p>Gostou deste lugar?</p>
+      <a href="{{ url_for('turistico') }}" class="detalhe__btn-ver-mais">
+        Ver mais pontos
+      </a>
+    </div>
+
+  </aside>
+</section>
+
+{% endblock %}
