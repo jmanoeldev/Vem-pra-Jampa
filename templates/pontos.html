@@ -60,7 +60,7 @@
 
         </section>
         
-        {% if not usuario_logado %}
+        {% if 'usuario' not in session %}
 
         <section class="login-notice">
 
@@ -70,7 +70,7 @@
                     Faça login para comentar pontos turísticos e receber recomendações personalizadas.
                 </p>
 
-                <a href="#" class="login-notice-button">
+                <a href="{{ url_for('auth.login') }}" class="login-notice-button">
                     Entrar ou criar conta
                 </a>
 
