@@ -10,10 +10,13 @@
   height: 42rem;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
 }
 
 .detalhe__hero-overlay {
+  width: 100%;
+  height: 100%;
   position: absolute;
   inset: 0;
   background: linear-gradient(
