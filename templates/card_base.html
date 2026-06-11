@@ -9,9 +9,8 @@
 {% endblock %}
 
 {% block content %}
-
 <!-- HERO -->
-<section class="detalhe__hero" >
+<section class="detalhe__hero" style="background-image: url('{{ url_for('static', filename='images/' ~ ponto.imagem) }}')">
   <div class="detalhe__hero-overlay">
     <div class="detalhe__hero-content">
       <span class="detalhe__badge">{{ ponto.categoria }}</span>
