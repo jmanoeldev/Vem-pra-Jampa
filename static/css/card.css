@@ -297,6 +297,10 @@
   font-size: 1.6rem;
   color: var(--text-primary);
   line-height: 1.7;
+   /* Resolve o problema da rolagem horizontal */
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  word-break: break-word;
 }
 
 /* --- Sidebar --- */
