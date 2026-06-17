@@ -50,3 +50,10 @@ def comentar(ponto_id):
         flash("Por favor, preencha todos os campos.", "warning")
         
     return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+
+@app.route("/destinos")
+def destinos():
+    return render_template(
+        "meus_destinos.html",
+        pontos=[]
+    )
