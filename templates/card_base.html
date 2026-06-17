@@ -131,6 +131,11 @@
                     <label for="editar-{{ comentario.id }}" class="detalhe__form-btn detalhe__form-btn--editar">Cancelar</label>
                   </div>
                 </form>
+
+                <form action="{{ url_for('excluir_comentario_rota', ponto_id=ponto.id, comentario_id=comentario.id) }}" method="POST"
+                onsubmit="return confirm('Tem certeza que deseja excluir este comentário?')">
+                  <button type="submit" class="detalhe__form-btn detalhe__form-btn--excluir">Excluir</button>
+                </form>
               {% endif %}
 
             </div>

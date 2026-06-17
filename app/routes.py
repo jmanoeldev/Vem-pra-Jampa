@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app
-from app.utils import ler_pontos, ler_comentarios, escrever_comentario, editar_comentario
+from app.utils import ler_pontos, ler_comentarios, escrever_comentario, editar_comentario, excluir_comentario
 
 @app.route("/")
 def index():
@@ -85,4 +85,26 @@ def editar_comentario_rota(ponto_id, comentario_id):
     else:
         flash('O comentário não pode ficar vazio.', 'warning')
 
+    return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+
+@app.route("/pontos-turisticos/<int:ponto_id>/comentarios/<int:comentario_id>/excluir", methods=["POST"])
+def excluir_comentario_rota(ponto_id, comentario_id):
+    comentarios = ler_comentarios()
+
+    comentario_alvo = None
+    for c in comentarios:
+        if int(c['id']) == comentario_id:
+            comentario_alvo = c
+            break
+    
+    if comentario_alvo is None:
+        flash('Comentário não encontrado.', 'erro')
+        return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+    
+    if session.get('usuario') != comentario_alvo['autor']:
+        flash('Você não tem permissão para excluir este comentário.', 'erro')
+        return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+    
+    excluir_comentario(comentario_id)
+    flash('Comentário excluído com sucesso.', 'sucesso')
     return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
