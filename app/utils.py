@@ -122,3 +122,39 @@ def atualizar_autor_comentarios(nome_antigo, nome_novo):
 
         writer.writeheader()
         writer.writerows(comentarios)
+
+def excluir_usuario(username):
+
+    usuarios = ler_usuarios()
+
+    usuarios_filtrados = []
+
+    for usuario in usuarios:
+
+        if usuario['username'] != username:
+            usuarios_filtrados.append(usuario)
+
+    with open(CSV_PATH,'w', newline='', encoding='utf-8') as f:
+
+        writer = csv.DictWriter(f, fieldnames=['username', 'email', 'password_hash'])
+
+        writer.writeheader()
+        writer.writerows(usuarios_filtrados)
+
+def excluir_comentarios_usuario(username):
+
+    comentarios = ler_comentarios()
+
+    comentarios_filtrados = []
+
+    for comentario in comentarios:
+
+        if comentario['autor'] != username:
+            comentarios_filtrados.append(comentario)
+
+    with open('data/comentarios.csv', 'w', newline='', encoding='utf-8') as f:
+
+        writer = csv.DictWriter(f, fieldnames=['id','ponto_id','autor','data','texto'])
+
+        writer.writeheader()
+        writer.writerows(comentarios_filtrados)

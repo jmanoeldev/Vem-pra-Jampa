@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import app
-from app.utils import salvar_usuario, buscar_email, buscar_usuario_por_username, atualizar_usuario, atualizar_autor_comentarios
+from app.utils import salvar_usuario, buscar_email, buscar_usuario_por_username, atualizar_usuario, atualizar_autor_comentarios, excluir_usuario, excluir_comentarios_usuario
 
 auth = Blueprint('auth', __name__)
 
@@ -124,3 +124,34 @@ def perfil():
         
 
     return render_template('perfil.html', usuario=usuario)
+
+@auth.route('/perfil/excluir')
+def confirmar_exclusao():
+
+    if 'usuario' not in session:
+
+        flash('Faça login para acessar esta página.', 'erro')
+
+        return redirect(url_for('auth.login'))
+
+    return render_template('confirmar_exclusao.html')
+
+@auth.route('/perfil/excluir/confirmar', methods=['POST'])
+def excluir_perfil():
+
+    if 'usuario' not in session:
+
+        flash('Faça login para continuar.','erro')
+
+        return redirect(url_for('auth.login'))
+
+    username = session['usuario']
+
+    excluir_comentarios_usuario(username)
+    excluir_usuario(username)
+
+    session.pop('usuario', None)
+
+    flash('Sua conta foi excluída com sucesso.','sucesso')
+
+    return redirect(url_for('index'))
