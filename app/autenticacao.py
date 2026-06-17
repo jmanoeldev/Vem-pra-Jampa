@@ -18,7 +18,7 @@ def register():
         
         password_hash = generate_password_hash(password)
         salvar_usuario(username, email, password_hash)
-        flash('Castro realizado com sucesso!', "sucesso")
+        flash('Cadastro realizado com sucesso!', "sucesso")
         return redirect(url_for('auth.login'))
             
     return render_template('cadastro.html')
