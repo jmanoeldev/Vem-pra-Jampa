@@ -34,6 +34,7 @@ def ler_pontos():
                 row['avaliacao'] = float(row['avaliacao'])
                 # Converte as dicas textuais separadas por '|' em uma lista do Python
                 row['dicas'] = row['dicas'].split('|') if row['dicas'] else []
+                row['categoria'] = row['categoria'].split('|') 
                 pontos.append(row)
     except FileNotFoundError:
         pass
