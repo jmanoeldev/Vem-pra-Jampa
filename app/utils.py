@@ -82,3 +82,80 @@ def escrever_comentario(ponto_id, autor, texto):
             'texto': texto
         })
 
+def buscar_usuario_por_username(username):
+    for usuario in ler_usuarios():
+        if usuario['username'] == username:
+            return usuario
+    return None
+
+def atualizar_usuario(username_atual, novo_username, novo_email, novo_password_hash):
+
+    usuarios = ler_usuarios()
+
+    for usuario in usuarios:
+
+        if usuario['username'] == username_atual:
+
+            usuario['username'] = novo_username
+            usuario['email'] = novo_email
+            usuario['password_hash'] = novo_password_hash
+
+            break
+
+    with open(CSV_PATH, 'w', newline='', encoding='utf-8') as f:
+
+        writer = csv.DictWriter(f, fieldnames=['username', 'email', 'password_hash'])
+        writer.writeheader()
+        writer.writerows(usuarios)
+
+def atualizar_autor_comentarios(nome_antigo, nome_novo):
+
+    comentarios = ler_comentarios()
+
+    for comentario in comentarios:
+
+        if comentario['autor'] == nome_antigo:
+            comentario['autor'] = nome_novo
+
+    with open('data/comentarios.csv', 'w', newline='', encoding='utf-8') as f:
+
+        writer = csv.DictWriter(f, fieldnames=['id', 'ponto_id', 'autor', 'data', 'texto'])
+
+        writer.writeheader()
+        writer.writerows(comentarios)
+
+def excluir_usuario(username):
+
+    usuarios = ler_usuarios()
+
+    usuarios_filtrados = []
+
+    for usuario in usuarios:
+
+        if usuario['username'] != username:
+            usuarios_filtrados.append(usuario)
+
+    with open(CSV_PATH,'w', newline='', encoding='utf-8') as f:
+
+        writer = csv.DictWriter(f, fieldnames=['username', 'email', 'password_hash'])
+
+        writer.writeheader()
+        writer.writerows(usuarios_filtrados)
+
+def excluir_comentarios_usuario(username):
+
+    comentarios = ler_comentarios()
+
+    comentarios_filtrados = []
+
+    for comentario in comentarios:
+
+        if comentario['autor'] != username:
+            comentarios_filtrados.append(comentario)
+
+    with open('data/comentarios.csv', 'w', newline='', encoding='utf-8') as f:
+
+        writer = csv.DictWriter(f, fieldnames=['id','ponto_id','autor','data','texto'])
+
+        writer.writeheader()
+        writer.writerows(comentarios_filtrados)

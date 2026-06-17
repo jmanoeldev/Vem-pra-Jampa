@@ -1,1 +1,2 @@
 username,email,password_hash
+Joao Carlos,joao@email,scrypt:32768:8:1$G65SKr5em4UYYWGF$eca6b9a03b7e53b644cb75f520151dc06fd16bd780e88f771d0c32bab765813676fc65b88d5706fc351f8e2bcbb799726551a87fd440b315ccafd0ca67b5479a
