@@ -147,6 +147,64 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- Botões de ação --- */
+.navbar__perfil {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.6rem;
+  border-radius: 1.2rem;
+  background-color: var(--bg-btn-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease,transform 0.1s ease;
+}
+
+.navbar__perfil:hover {
+  background-color: var(--bg-link-hover);
+}
+
+.navbar__perfil:active {
+  transform: scale(0.97);
+}
+
+.navbar__perfil i {
+  font-size: 2rem;
+}
+
+.navbar__perfil span {
+  max-width: 18rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar__logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 1.2rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: background-color 0.15s ease, color 0.15s ease,transform 0.1s ease;
+}
+
+.navbar__logout:hover {
+  background-color: var(--bg-btn-hover);
+  color: var(--text-primary);
+}
+
+.navbar__logout:active {
+  transform: scale(0.97);
+}
+
+.navbar__logout i {
+  font-size: 2.4rem;
+}
+
 .navbar__actions {
   display: flex;
   align-items: center;

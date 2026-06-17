@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Confirmar Exclusão
+{% endblock %}
+
+{% block css_extra %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="pagina-perfil">
+
+    <div class="container-perfil">
+
+        <div class="cabecalho-perfil">
+
+            <span>Atenção</span>
+
+            <h1>Excluir <em>Conta.</em></h1>
+
+        </div>
+
+        <div class="card-perfil">
+
+            <p>Tem certeza que deseja excluir sua conta?</p>
+
+            <br>
+
+            <p>Esta ação é permanente e removerá:</p>
+
+            <ul>
+
+                <li>Seus dados cadastrais;</li>
+                <li>Todos os seus comentários;</li>
+                <li>Seu acesso ao sistema.</li>
+
+            </ul>
+
+            <div class="area-acoes-secundarias">
+
+                <a href="{{ url_for('auth.perfil') }}" class="botao-secundario">Cancelar</a>
+
+                <form action="{{ url_for('auth.excluir_perfil') }}" method="POST">
+                    
+                    <button type="submit" class="botao-excluir">Excluir perfil permanentemente</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
