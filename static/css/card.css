@@ -518,3 +518,42 @@
   background-color: var(--color-primary, #004085);
   transform: translateY(-2px);
 }
+
+.detalhe__comentario-toggle{
+  display: none;
+}
+
+.detalhe__comentario-form-editar {
+  display: none
+}
+
+.detalhe__comentario-toggle:checked ~ .detalhe__comentario-texto--original {
+  display: none;
+}
+
+.detalhe__comentario-toggle:checked ~ .detalhe__comentario-form-editar {
+  display: block;
+}
+
+.detalhe__comentario-editar-bttn {
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-left: auto;
+  padding: 0.7rem;
+  border-radius: 8px;
+}
+
+.detalhe__comentario-editar-bttn:hover{
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.detalhe__comentario-form-acoes{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.detalhe__form-btn--editar{
+  display: inline-block;
+}

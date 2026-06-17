@@ -1,6 +1,6 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from app import app
-from app.utils import ler_pontos, ler_comentarios, escrever_comentario
+from app.utils import ler_pontos, ler_comentarios, escrever_comentario, editar_comentario
 
 @app.route("/")
 def index():
@@ -40,13 +40,49 @@ def ponto_detalhe(ponto_id):
 
 @app.route("/pontos-turisticos/<int:ponto_id>/comentar", methods=["POST"])
 def comentar(ponto_id):
-    autor = request.form.get("autor")
-    texto = request.form.get("texto")
+    autor = session.get("usuario")
     
-    if autor and texto:
+    if not autor:
+        flash("Você precisa estar logado para comentar.", "erro")
+        return redirect(url_for('auth.login'))
+    
+    texto = request.form.get('texto')
+
+    if texto:
         escrever_comentario(ponto_id, autor, texto)
-        flash("Comentário adicionado com sucesso!", "success")
+        flash('Comentario adicionado com sucesso!', 'success')
+
     else:
-        flash("Por favor, preencha todos os campos.", "warning")
-        
+        flash('Por favor, escreva um comentario.', 'warning')
+    
+    return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+
+@app.route("/pontos-turisticos/<int:ponto_id>/comentario/<int:comentario_id>/editar", methods=["POST"])
+def editar_comentario_rota(ponto_id, comentario_id):
+    usuario_logado = session.get('usuario')
+
+    if not usuario_logado:
+        flash('Voce precisa estar logado para editar comenários.', 'erro')
+        return redirect(url_for('auth.login'))
+    
+    comentarios = ler_comentarios()
+    comentario = None
+
+    for c in comentarios:
+        if int(c['id']) == comentario_id:
+            comentario = c
+            break
+    
+    if comentario is None or comentario['autor'] != usuario_logado:
+        flash('Você não tem permissão para editar este comentário.', 'erro')
+        return redirect(url_for('ponto_detalhe', ponto_id = ponto_id))
+    
+    novo_texto = request.form.get('texto')
+
+    if novo_texto:
+        editar_comentario(comentario_id, novo_texto)
+        flash('Comentario atualizado com sucesso!', 'success')
+    else:
+        flash('O comentário não pode ficar vazio.', 'warning')
+
     return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))

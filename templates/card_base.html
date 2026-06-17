@@ -99,12 +99,40 @@
             <div class="detalhe__comentario-avatar">
               {{ comentario.autor[0]|upper }}
             </div>
+
             <div class="detalhe__comentario-corpo">
+
+              {% if session.get('usuario') == comentario.autor %}
+                <input type="checkbox" id="editar-{{ comentario.id }}" class="detalhe__comentario-toggle">
+              {% endif %}
+
+
               <div class="detalhe__comentario-header">
                 <strong>{{ comentario.autor }}</strong>
                 <span class="detalhe__comentario-data">{{ comentario.data }}</span>
+
+                {% if session.get('usuario') == comentario.autor %}
+                  <label for="editar-{{ comentario.id }}" class="detalhe__comentario-editar-bttn">
+                    <i class="ti ti-pencil"></i> Editar
+                  </label>
+                {% endif %}
               </div>
+
               <p class="detalhe__comentario-texto">{{ comentario.texto }}</p>
+
+              {% if session.get('usuario') == comentario.autor%}
+                <form class="detalhe__comentario-form-editar"
+                action="{{ url_for('editar_comentario_rota', ponto_id=ponto.id, comentario_id=comentario.id) }}"
+                method="POST">
+                  <textarea name="texto" rows="3" required class="detalhe__form-textarea">{{ comentario.texto }}</textarea>
+
+                  <div class="detalhe__comentario-form-acoes">
+                    <button type="submit" class="detalhe__form-btn detalhe__form-btn--editar">Salvar</button>
+                    <label for="editar-{{ comentario.id }}" class="detalhe__form-btn detalhe__form-btn--editar">Cancelar</label>
+                  </div>
+                </form>
+              {% endif %}
+
             </div>
           </div>
         {% else %}
