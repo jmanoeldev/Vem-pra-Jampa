@@ -14,7 +14,8 @@ def historia():
 
 @app.route("/pontos-turisticos")
 def turistico():
-    return render_template("pontos.html")
+    pontos_lista = ler_pontos()
+    return render_template("pontos.html", pontos=pontos_lista)
 
 
 @app.route("/pontos-turisticos/<int:ponto_id>")
