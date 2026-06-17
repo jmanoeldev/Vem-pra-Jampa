@@ -84,37 +84,6 @@ body {
     line-height: 1.8;
 }
 
-.pagina-pontos .filters-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    font-size: medium;
-    margin-bottom: 40px;
-}
-
-.pagina-pontos .filter-button {
-    padding: 12px 24px;
-
-    border-radius: var(--radius-pill);
-
-    background: #eef1fb;
-
-    color: #4b5d87;
-    font-weight: 500;
-
-    transition: 0.25s;
-}
-
-.pagina-pontos .filter-button:hover {
-    background: var(--cor-primaria);
-    color: white;
-}
-
-.pagina-pontos .filter-button.active {
-    background: var(--cor-primaria);
-    color: white;
-}
-
 .pagina-pontos .login-notice {
     margin-bottom: 50px;
 }
