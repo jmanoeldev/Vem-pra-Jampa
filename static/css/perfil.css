@@ -1,0 +1,112 @@
+.pagina-perfil {
+    min-height: 100vh;
+    background-color: #F8F7F2;
+    padding: 6rem 2rem;
+}
+
+.container-perfil {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.cabecalho-perfil {
+    margin-bottom: 4rem;
+}
+
+.cabecalho-perfil span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #1F4E8C;
+    margin-bottom: 1rem;
+}
+
+.cabecalho-perfil h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 5.6rem;
+    font-weight: 700;
+    color: #081F5C;
+}
+
+.cabecalho-perfil h1 em {
+    color: #F97316;
+    font-style: italic;
+}
+
+.card-perfil {
+    background-color: #FFFFFF;
+    border-radius: 2.4rem;
+    padding: 3.2rem;
+    box-shadow: 0 0.8rem 2.5rem rgba(0,0,0,0.08);
+}
+
+.formulario-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.grupo-campo label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #081F5C;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.grupo-campo input {
+    height: 5.6rem;
+    padding: 0 1.6rem;
+    border: 0.1rem solid #E5E7EB;
+    border-radius: 1.2rem;
+    font-size: 1.6rem;
+}
+
+.acoes-perfil {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.6rem;
+}
+
+.botao-salvar {
+    width: fit-content;
+    padding: 1.4rem 2.4rem;
+    border: none;
+    border-radius: 1.2rem;
+    background-color: #081F5C;
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.area-acoes-secundarias {
+    margin-top: 2.4rem;
+    display: flex;
+    gap: 1.6rem;
+}
+
+.botao-secundario,
+.botao-excluir {
+    padding: 1.4rem 2.4rem;
+    border-radius: 1.2rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.botao-secundario {
+    background-color: #F1F5F9;
+    color: #081F5C;
+}
+
+.botao-excluir {
+    background-color: #DC2626;
+    color: #FFFFFF;
+}
