@@ -159,3 +159,16 @@ def excluir_comentarios_usuario(username):
 
         writer.writeheader()
         writer.writerows(comentarios_filtrados)
+
+def editar_comentario(comentario_id, novo_texto):
+    comentarios = ler_comentarios()
+
+    for comentario in comentarios:
+        if int(comentario['id']) == comentario_id:
+            comentario['texto'] = novo_texto
+            break
+
+    with open('data/comentarios.csv', 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=['id', 'ponto_id', 'autor', 'data', 'texto'])
+        writer.writeheader()
+        writer.writerows(comentarios)
