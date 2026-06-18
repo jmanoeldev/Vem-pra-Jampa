@@ -113,4 +113,5 @@ def excluir_comentario_rota(ponto_id, comentario_id):
 def destinos():
     return render_template(
         "meus_destinos.html",
-        pontos=[])
+        pontos=[]
+    )
