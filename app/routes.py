@@ -108,3 +108,10 @@ def excluir_comentario_rota(ponto_id, comentario_id):
     excluir_comentario(comentario_id)
     flash('Comentário excluído com sucesso.', 'sucesso')
     return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+
+@app.route("/destinos")
+def destinos():
+    return render_template(
+        "meus_destinos.html",
+        pontos=[]
+    )
