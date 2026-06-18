@@ -83,10 +83,10 @@
                 <p>Crie uma conta para receber recomendações personalizadas de acordo com seu jeito de viajar.</p>
                 <div class="sugest-botoes">
                     <div class="login">
-                        <a href="login.html">Criar sua conta</a>
+                        <a href="{{ url_for('auth.login') }}">Criar sua conta</a>
                     </div>
                     <div class="destinos">
-                        <a href="destinos.html">Ver Meus Destinos</a>
+                        <a href="{{ url_for('destinos') }}">Ver Meus Destinos</a>
                     </div>
                 </div>
             </div>
