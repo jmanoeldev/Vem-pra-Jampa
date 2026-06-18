@@ -57,7 +57,7 @@ body {
     display: inline-block;
     margin-bottom: 20px;
 
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     font-weight: 600;
     letter-spacing: 3px;
     color: #0f6fc8;
@@ -65,7 +65,7 @@ body {
 
 .pagina-pontos .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 7rem;
+    font-size: 11.2rem;
     line-height: 0.95;
     color: var(--cor-titulo);
 
@@ -80,7 +80,7 @@ body {
 .pagina-pontos .hero-descricao {
     max-width: 650px;
 
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     line-height: 1.8;
 }
 
@@ -104,7 +104,7 @@ body {
 
 .pagina-pontos .login-notice-text {
     color: #5a4c18;
-    font-size: 1.5rem;
+    font-size: 2.4rem;
 }
 
 .pagina-pontos .login-notice-button {
@@ -116,11 +116,11 @@ body {
     padding: 12px 24px;
 
     border-radius: var(--radius-pill);
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     font-weight: 600;
 }
 
-.pagina-pontos .cards-grid {
+.cards-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -128,7 +128,7 @@ body {
     gap: 32px;
 }
 
-.pagina-pontos .tourist-card {
+.tourist-card {
     display: flex;
     flex-direction: column;
     background: var(--cor-card);
@@ -141,61 +141,61 @@ body {
     transition: 0.3s ease;
 }
 
-.pagina-pontos .tourist-card:hover {
+.tourist-card:hover {
     transform: translateY(-6px);
 }
 
-.pagina-pontos .card-link {
+.card-link {
     display: inline-block;
     margin-top: auto;
     align-self: center;
     padding: 10px 20px;
-
+    text-decoration: none;
     background: var(--cor-primaria);  /* #09157f */
     color: white;
 
     border-radius: var(--radius-pill);
 
-    font-size: 1.4rem;
+    font-size: 2.24rem;
     font-weight: 500;
 
     transition: background 0.25s ease, transform 0.2s ease;
 }
 
-.pagina-pontos .card-link:hover {
+.card-link:hover {
     background: #0f6fc8;
     transform: translateX(3px);
 }
 
-.pagina-pontos .card-image-area {
+.card-image-area {
     height: 280px;
     overflow: hidden;
 }
 
-.pagina-pontos .card-image {
+.card-image {
     height: 100%;
     object-fit: cover;
 
     transition: transform 0.5s ease;
 }
 
-.pagina-pontos .tourist-card:hover .card-image {
+.tourist-card:hover .card-image {
     transform: scale(1.05);
 }
 
-.pagina-pontos .card-content {
+.card-content {
     padding: 28px;
     display: flex;
     flex-direction: column;
     height: 70%;
 }
 
-.pagina-pontos .categorias {
+.categorias {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.pagina-pontos .categoria {
+.categoria {
     display: inline-block;
     width: fit-content;
     margin-right: 8px;
@@ -209,12 +209,12 @@ body {
 
     color: #60719c;
 
-    font-size: 1.2rem;
+    font-size: 1.92rem;
     font-weight: 500;
     text-transform: uppercase;
 }
 
-.pagina-pontos .card-title {
+.card-title {
     margin-top: 6px;
     margin-bottom: 14px;
     align-self: center;
@@ -222,12 +222,12 @@ body {
 
     color: var(--cor-titulo);
 
-    font-size: 2.7rem;
+    font-size: 4.32rem;
     line-height: 1.15;
 }
 
-.pagina-pontos .card-description {
-    font-size: 1.4rem;
+.card-description {
+    font-size: 2.24rem;
     line-height: 1.8;
 }
 

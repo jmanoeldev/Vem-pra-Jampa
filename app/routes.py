@@ -113,10 +113,4 @@ def excluir_comentario_rota(ponto_id, comentario_id):
 def destinos():
     return render_template(
         "meus_destinos.html",
-        pontos=[ {
-            "id": 1,
-            "nome": "Praia de Tambaú",
-            "categoria": ["Praia"],
-            "resumo": "O coração litorâneo da capital. Reconhecida pelo mar calmo, orla movimentada e feirinha de artesanato.",
-            "card_img": "foto-orla.webp"
-        }])
+        pontos=[])
