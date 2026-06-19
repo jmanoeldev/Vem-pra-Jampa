@@ -60,6 +60,22 @@
 
     <!-- Comentários -->
     <div class="detalhe__card">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div style="margin-bottom: 2rem;">
+            {% for category, message in messages %}
+              <div class="detalhe__flash {% if category == 'success' %}detalhe__flash--sucesso{% else %}detalhe__flash--erro{% endif %}">
+                {% if category == 'success' %}
+                  <i class="ti ti-circle-check"></i>
+                {% else %}
+                  <i class="ti ti-alert-circle"></i>
+                {% endif %}
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
       <h2 class="detalhe__secao-titulo">
         <i class="ti ti-message"></i> Comentários ({{ comentarios|length }})
       </h2>
