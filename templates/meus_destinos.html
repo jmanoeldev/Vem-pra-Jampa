@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}Meus Destinos{% endblock %}
+
+{% block css_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/destinos.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="pagina-destinos">
+
+    {% if 'usuario' not in session %}
+
+    <section class="acesso-restrito">
+
+        <span class="badge-restrito">
+            Acesso restrito
+        </span>
+
+        <h1>
+            Faça login para ver <br>
+            <span>Meus Destinos</span>
+        </h1>
+
+        <p>
+            Descubra recomendações personalizadas de acordo com o seu perfil de viagem.
+        </p>
+
+        <div class="acoes">
+            <a href="{{ url_for('auth.login') }}" class="login-notice-button">
+                Entrar ou criar conta
+            </a>
+        </div>
+
+    </section>
+
+    {% else %}
+
+    <section class="recomendacao-section">
+
+        <div class="recomendacao-header">
+
+            <span class="badge-personalizado">
+                Recomendação personalizada
+            </span>
+
+            <h1>
+                Descubra destinos que combinam com você
+            </h1>
+
+            <p>
+                Responda algumas perguntas e receba sugestões personalizadas.
+            </p>
+
+        </div>
+
+        <form method="POST" action="{{ url_for('destinos') }}" class="form-preferencias">
+
+            <!-- Pergunta 1 -->
+            <div class="pergunta">
+                <label class="pergunta-titulo">O que você mais procura nesta viagem?</label>
+                <div class="opcoes-checkbox">
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="objetivo" value="Praia">
+                        Descanso e maresia
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="objetivo" value="Histórico">
+                        Conhecer o passado e suas histórias
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="objetivo" value="Cultural">
+                        Expressões culturais e tradições locais
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="objetivo" value="Natural">
+                        Aventura e contato com a natureza
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="objetivo" value="Vida Noturna">
+                        Noites animadas e entretenimento
+                    </label>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="pergunta">
+                <label class="pergunta-titulo">Com quem você vai visitar os lugares?</label>
+                <div class="opcoes-checkbox">
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="companhia" value="sozinho">
+                        Sozinho
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="companhia" value="casal">
+                        Casal
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="companhia" value="amigos">
+                        Amigos
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="companhia" value="familia">
+                        Família
+                    </label>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="pergunta">
+                <label class="pergunta-titulo">Você é uma pessoa que gosta mais de:</label>
+                <div class="opcoes-checkbox">
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="periodo" value="manha">
+                        Atividades pela manhã
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="periodo" value="tarde">
+                        Passeios à tarde
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="periodo" value="noite">
+                        Aproveitar a noite
+                    </label>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="pergunta">
+                <label class="pergunta-titulo">Ao visitar um destino, qual costuma ser seu estilo?</label>
+                <div class="opcoes-checkbox">
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="orcamento" value="baixo">
+                        Procuro atividades gratuitas ou de baixo custo
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="orcamento" value="medio">
+                        Misturo atrações gratuitas e pagas
+                    </label>
+                    <label class="opcao-checkbox">
+                        <input type="checkbox" name="orcamento" value="alto">
+                        Não me importo em pagar por boas experiências
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-gerar">
+                Gerar recomendação
+            </button>
+
+        </form>
+
+    </section>
+
+    {% if pontos %}
+
+    <section class="resultado-recomendacao">
+
+        <h2>
+            Esses são os destinos que têm a sua cara
+        </h2>
+
+        <p>
+            Selecionamos algumas opções com base nas suas respostas.
+        </p>
+
+    </section>
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <div class="cards-grid">
+                {% for ponto in pontos %}
+                <article class="tourist-card">
+
+                    <div class="card-image-area">
+                        <img src="{{ url_for('static', filename='images/' ~ ponto.card_img) }}"
+                            alt="{{ ponto.nome }}"
+                            class="card-image">
+                    </div>
+
+                    <div class="card-content">
+                        <div class="categorias">
+                            {% for cat in ponto.categoria %}
+                                <span class="categoria">{{ cat }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <h3 class="card-title">{{ ponto.nome }}</h3>
+
+                        <p class="card-description">
+                            {{ ponto.resumo }}
+                        </p>
+
+                        <a href="{{ url_for('ponto_detalhe', ponto_id=ponto.id) }}" class="card-link">Ver detalhes &rsaquo;</a>
+                    </div>
+
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% endif %}
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

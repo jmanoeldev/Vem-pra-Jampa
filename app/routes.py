@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app
 from app.utils import ler_pontos, ler_comentarios, escrever_comentario, editar_comentario, excluir_comentario
+from app.recomendacao import recomendar
 
 @app.route("/")
 def index():
@@ -108,3 +109,16 @@ def excluir_comentario_rota(ponto_id, comentario_id):
     excluir_comentario(comentario_id)
     flash('Comentário excluído com sucesso.', 'sucesso')
     return redirect(url_for('ponto_detalhe', ponto_id=ponto_id))
+
+@app.route('/meus-destinos', methods= ['GET', 'POST'])
+def destinos():
+    if request.method == 'POST':
+        objetivos = request.form.getlist('objetivo')
+        companhias = request.form.getlist('companhia')
+        periodos = request.form.getlist('periodo')
+        orcamentos = request.form.getlist('orcamento')
+
+        pontos = recomendar(objetivos, companhias, periodos, orcamentos)
+
+        return render_template('meus_destinos.html', pontos=pontos)
+    return render_template('meus_destinos.html', pontos=None)

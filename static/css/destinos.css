@@ -1,0 +1,416 @@
+/* =========================
+   PÁGINA MEUS DESTINOS
+========================= */
+
+.pagina-destinos {
+    min-height: calc(100vh - 8rem);
+    padding: 5rem 2rem;
+    --cor-primaria: #09157f;
+    --cor-secundaria: #f66b0e;
+    --cor-texto: #4d5c82;
+    --cor-titulo: #051144;
+    --cor-fundo: #fafafa;
+    --cor-card: #ffffff;
+    --cor-borda: #e8ebf5;
+
+    --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+    --container-width: 1280px;
+    --radius-card: 28px;
+    --radius-pill: 999px;
+
+}
+
+
+
+/* =========================
+   ACESSO RESTRITO
+========================= */
+
+.acesso-restrito {
+    max-width: 80rem;
+    margin: 8rem auto;
+    text-align: center;
+}
+
+.badge-restrito {
+    display: inline-block;
+
+    padding: 0.8rem 1.8rem;
+
+    border-radius: 999px;
+
+    background-color: #fff2db;
+    color: #f97316;
+
+    font-size: 2.24rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.acesso-restrito h1 {
+    margin-top: 2.5rem;
+
+    font-size: 9.6rem;
+    line-height: 1.1;
+
+    color: #091540;
+}
+
+.acesso-restrito h1 span {
+    color: #f97316;
+}
+
+.acesso-restrito p {
+    max-width: 60rem;
+
+    margin: 2rem auto 0;
+
+    font-size: 3.2rem;
+    line-height: 1.6;
+
+    color: #5d6785;
+}
+
+.acoes {
+    margin-top: 4rem;
+}
+
+.login-notice-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.5rem 3rem;
+
+    border-radius: 1.2rem;
+
+    background-color: #f97316;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 2.88rem;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.login-notice-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.recomendacao-section {
+    max-width: 110rem;
+
+    margin: 4rem auto;
+
+    padding: 5rem;
+
+    border-radius: 3rem;
+
+    background: linear-gradient(
+        135deg,
+        #0919a8,
+        #1495d4,
+        #6cc0a7
+    );
+
+    color: white;
+}
+
+.badge-personalizado {
+    display: inline-block;
+
+    padding: 0.8rem 1.8rem;
+
+    border-radius: 999px;
+
+    background-color: rgba(255,255,255,0.15);
+
+    font-size: 2.24rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+.recomendacao-header h1 {
+    margin-top: 2rem;
+
+    font-size: 7.68rem;
+    line-height: 1.15;
+}
+
+.recomendacao-header p {
+    margin-top: 1.5rem;
+
+    font-size: 3.04rem;
+
+    opacity: 0.95;
+}
+
+.form-preferencias {
+    margin-top: 4rem;
+
+    display: grid;
+    gap: 2.5rem;
+}
+
+.pergunta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pergunta label {
+    font-size: 2.88rem;
+    font-weight: 600;
+}
+
+.pergunta select {
+    padding: 1.5rem;
+
+    border: none;
+    border-radius: 1.2rem;
+
+    background-color: white;
+
+    font-size: 2.56rem;
+    color: #333;
+
+    outline: none;
+}
+
+.btn-gerar {
+    width: fit-content;
+    justify-self: center;
+    margin-top: 1rem;
+
+    padding: 1.6rem 3rem;
+
+    border: none;
+    border-radius: 1.2rem;
+
+    background-color: #f97316;
+
+    color: white;
+
+    font-size: 2.88rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-gerar:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESULTADO
+========================= */
+
+.resultado-recomendacao {
+    text-align: center;
+
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+}
+
+.resultado-recomendacao h2 {
+    font-size: 6.4rem;
+
+    color: #091540;
+}
+
+.resultado-recomendacao p {
+    margin-top: 1rem;
+
+    font-size: 2.88rem;
+
+    color: #5d6785;
+}
+
+/* =========================
+   CARDS DE RECOMENDAÇÃO
+========================= */
+
+.cards-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 32px;
+}
+
+.tourist-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+
+    box-shadow: var(--sombra-card);
+
+    transition: 0.3s ease;
+}
+
+.tourist-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: auto;
+    align-self: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    background: var(--cor-primaria);  /* #09157f */
+    color: white;
+
+    border-radius: var(--radius-pill);
+
+    font-size: 2.24rem;
+    font-weight: 500;
+
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.card-link:hover {
+    background: #0f6fc8;
+    transform: translateX(3px);
+}
+
+.card-image-area {
+    height: 280px;
+    overflow: hidden;
+}
+
+.card-image {
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.tourist-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+}
+
+.categorias {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.categoria {
+    display: inline-block;
+    width: fit-content;
+    margin-right: 8px;
+    margin-bottom: 10px;
+
+    padding: 6px 14px;
+
+    background: #eef1fb;
+
+    border-radius: var(--radius-pill);
+
+    color: #60719c;
+
+    font-size: 1.92rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card-title {
+    margin-top: 6px;
+    margin-bottom: 14px;
+    align-self: center;
+    font-family: 'Cormorant Garamond', serif;
+
+    color: var(--cor-titulo);
+
+    font-size: 4.32rem;
+    line-height: 1.15;
+}
+
+.card-description {
+    font-size: 2.24rem;
+    line-height: 1.8;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+
+@media (max-width: 700px) {
+
+    .acesso-restrito h1 {
+        font-size: 6.4rem;
+    }
+
+    .recomendacao-section {
+        padding: 2.5rem 1.8rem;
+    }
+
+    .recomendacao-header h1 {
+        font-size: 5.6rem;
+    }
+
+    .recomendacao-header p {
+        font-size: 2.4rem;
+    }
+
+    .resultado-recomendacao h2 {
+        font-size: 4.8rem;
+    }
+   
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-preferencias {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+
+    .pergunta label {
+        font-size: 2.24rem;
+    }
+
+    .pergunta select {
+        width: 100%;
+        padding: 1.2rem;
+        font-size: 2.08rem;
+    }
+
+    .btn-gerar {
+        width: 100%;
+        padding: 1.4rem 2rem;
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

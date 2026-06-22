@@ -35,6 +35,9 @@ def ler_pontos():
                 # Converte as dicas textuais separadas por '|' em uma lista do Python
                 row['dicas'] = row['dicas'].split('|') if row['dicas'] else []
                 row['categoria'] = row['categoria'].split('|') 
+                row['periodo'] = row['periodo'].split('|') if row['periodo'] else []
+                row['publico'] = row['publico'].split('|') if row['publico'] else []
+                row['custo'] = row['custo'].split('|') if row['custo'] else []
                 pontos.append(row)
     except FileNotFoundError:
         pass
