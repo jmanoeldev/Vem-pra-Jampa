@@ -143,7 +143,6 @@
 
 .recomendacao-header h1 {
     margin-top: 2rem;
-
     font-size: 7.68rem;
     line-height: 1.15;
 }
@@ -151,9 +150,9 @@
 .recomendacao-header p {
     margin-top: 1.5rem;
 
-    font-size: 3.04rem;
+    font-size: 2.7rem;
 
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 .form-preferencias {
@@ -166,11 +165,24 @@
 .pergunta {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    margin: 1.2rem;
 }
 
-.pergunta label {
+.opcoes-checkbox {
+    font-size: 2.7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="checkbox"] {
+    accent-color: #2e7d32;
+    transform: scale(1.2);
+    margin-right: 0.8rem;
+}
+
+.pergunta-titulo {
     font-size: 2.88rem;
+    padding-bottom: 0.8rem;
     font-weight: 600;
 }
 
@@ -191,7 +203,7 @@
     justify-self: center;
     margin-top: 1rem;
 
-    padding: 1.6rem 3rem;
+    padding: 1.6rem 3.2rem;
 
     border: none;
     border-radius: 1.2rem;
@@ -209,7 +221,7 @@
 }
 
 .btn-gerar:hover {
-    transform: translateY(-2px);
+    padding: 2rem 3.6rem;
 }
 
 /* =========================
@@ -296,7 +308,7 @@
 .card-image {
     height: 100%;
     object-fit: cover;
-
+    width: 100%;
     transition: transform 0.5s ease;
 }
 
