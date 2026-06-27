@@ -496,6 +496,119 @@ h1, h2, h3 {
     background: rgba(255, 255, 255, 0.2);
 }
 
+#faq-jampa {
+    padding: 80px 40px;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.faq-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: #051144;
+    margin-bottom: 15px;
+}
+
+.faq-header h2 span {
+    color: #f66b0e;
+    font-style: italic;
+}
+
+.faq-header p {
+    font-size: 1.2rem;
+    color: #4d5c82;
+}
+
+.faq-table-wrapper {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #e8ebf5;
+}
+
+.faq-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.faq-tabela th {
+    background-color: #09157f;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 20px 25px;
+}
+
+.faq-tabela td {
+    padding: 20px 25px;
+    font-size: 1.1rem;
+    color: #4d5c82;
+    border-bottom: 1px solid #e8ebf5;
+    line-height: 1.6;
+}
+
+.faq-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Efeito sutil ao passar o mouse na linha da tabela */
+.faq-tabela tbody tr:hover {
+    background-color: #f8fafe;
+}
+
+.faq-tabela td strong {
+    color: #051144;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    #faq-jampa {
+        padding: 50px 20px;
+    }
+    
+    .faq-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .faq-tabela, .faq-tabela tbody, .faq-tabela tr, .faq-tabela td, .faq-tabela th {
+        display: block;
+        width: 100%;
+    }
+
+    .faq-tabela thead {
+        display: none; /* Esconde o cabeçalho no celular para transformar as linhas em pequenos "cards" */
+    }
+
+    .faq-tabela tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e8ebf5;
+    }
+    
+    .faq-tabela td {
+        padding: 15px;
+        border-bottom: none;
+    }
+    
+    /* Destaca a pergunta no celular */
+    .faq-tabela td:first-child {
+        background-color: #f0f4f8;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
 @media (min-width: 640px) {
   :root { 
     --padding-horizont: 2.5rem;
