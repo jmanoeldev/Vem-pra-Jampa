@@ -56,8 +56,7 @@ body {
 .pagina-pontos .hero-subtitle {
     display: inline-block;
     margin-bottom: 20px;
-
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: 3px;
     color: #0f6fc8;
@@ -65,7 +64,7 @@ body {
 
 .pagina-pontos .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 11.2rem;
+    font-size: 9.6rem;
     line-height: 0.95;
     color: var(--cor-titulo);
 
@@ -80,7 +79,7 @@ body {
 .pagina-pontos .hero-descricao {
     max-width: 650px;
 
-    font-size: 2.4rem;
+    font-size: 2.24rem;
     line-height: 1.8;
 }
 
@@ -104,7 +103,7 @@ body {
 
 .pagina-pontos .login-notice-text {
     color: #5a4c18;
-    font-size: 2.4rem;
+    font-size: 2.24rem;
 }
 
 .pagina-pontos .login-notice-button {
@@ -116,7 +115,7 @@ body {
     padding: 12px 24px;
 
     border-radius: var(--radius-pill);
-    font-size: 2.4rem;
+    font-size: 2.24rem;
     font-weight: 600;
 }
 
@@ -156,7 +155,7 @@ body {
 
     border-radius: var(--radius-pill);
 
-    font-size: 2.24rem;
+    font-size: 1.92rem;
     font-weight: 500;
 
     transition: background 0.25s ease, transform 0.2s ease;
@@ -186,7 +185,7 @@ body {
 .card-content {
     padding: 28px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     height: 70%;
 }
 
@@ -222,12 +221,12 @@ body {
 
     color: var(--cor-titulo);
 
-    font-size: 4.32rem;
+    font-size: 3.52rem;
     line-height: 1.15;
 }
 
 .card-description {
-    font-size: 2.24rem;
+    font-size: 1.92rem;
     line-height: 1.8;
 }
 
