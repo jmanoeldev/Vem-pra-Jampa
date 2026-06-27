@@ -190,6 +190,51 @@ html {
     transform: translateY(-.2rem);
 }
 
+/* FLASH MESSAGES */
+
+.flash{
+    display:flex;
+    align-items:flex-start;
+    gap:1.4rem;
+    padding:1.5rem 1.8rem;
+    margin-bottom:2.4rem;
+    border-radius:1.4rem;
+    border:1px solid transparent;
+    border-left:.5rem solid transparent;
+    font-size:1.5rem;
+    font-weight:500;
+    line-height:1.5;
+    animation:fadeIn .25s ease;
+}
+
+.flash i{
+    font-size:2rem;
+    margin-top:.2rem;
+    flex-shrink:0;
+}
+
+.flash.sucesso{
+    background:#ECFDF3;
+    color:#166534;
+    border-color:#A7F3D0;
+    border-left-color:#86EFAC;
+}
+
+.flash.sucesso i{
+    color:#16A34A;
+}
+
+.flash.erro{
+    background:#FEF2F2;
+    color:#991B1B;
+    border-color:#FECACA;
+    border-left-color:#FCA5A5;
+}
+
+.flash.erro i{
+    color:#DC2626;
+}
+
 /* TABLET */
 
 @media (max-width: 1024px) {

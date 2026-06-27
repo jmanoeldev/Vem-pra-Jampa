@@ -32,7 +32,7 @@ def login():
         usuario = buscar_email(email)
 
         if not usuario or not check_password_hash(usuario['password_hash'], password):
-            flash('Email ou senha incorretos.')
+            flash('Email ou senha incorretos.', 'erro')
             return redirect(url_for('auth.login'))
         
         session['usuario']=usuario['username']
