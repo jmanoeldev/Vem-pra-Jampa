@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Confirmar Exclusão
+Confirmar Exclusão
 {% endblock %}
 
 {% block css_extra %}
@@ -19,34 +19,60 @@
         <div class="cabecalho-perfil">
 
             <span>Atenção</span>
-
             <h1>Excluir <em>Conta.</em></h1>
 
         </div>
 
         <div class="card-perfil">
 
-            <p>Tem certeza que deseja excluir sua conta?</p>
+            <div class="painel-alerta">
 
-            <br>
+                <div class="painel-alerta__icone">
 
-            <p>Esta ação é permanente e removerá:</p>
+                    <i class="ti ti-alert-triangle"></i>
 
-            <ul>
+                </div>
 
-                <li>Seus dados cadastrais;</li>
-                <li>Todos os seus comentários;</li>
-                <li>Seu acesso ao sistema.</li>
+                <div class="painel-alerta__conteudo">
 
-            </ul>
+                    <h2>Esta ação é permanente.</h2>
+
+                    <p>Ao excluir sua conta, você perderá definitivamente:</p>
+
+                    <ul>
+                        <li>Seu perfil e seus dados cadastrais;</li>
+                        <li>Todos os seus comentários;</li>
+                        <li>Seus destinos favoritos;</li>
+                        <li>Seu acesso ao sistema.</li>
+                    </ul>
+
+                    <div class="painel-alerta__linha"></div>
+
+                    <strong>Esta ação não poderá ser desfeita.</strong>
+
+                </div>
+
+            </div>
 
             <div class="area-acoes-secundarias">
 
-                <a href="{{ url_for('auth.perfil') }}" class="botao-secundario">Cancelar</a>
+                <a href="{{ url_for('auth.perfil') }}" class="botao-secundario">
+
+                    <i class="ti ti-arrow-left"></i>
+
+                    Cancelar
+
+                </a>
 
                 <form action="{{ url_for('auth.excluir_perfil') }}" method="POST">
-                    
-                    <button type="submit" class="botao-excluir">Excluir perfil permanentemente</button>
+
+                    <button type="submit" class="botao-excluir">
+
+                        <i class="ti ti-trash"></i>
+
+                        Excluir perfil permanentemente
+
+                    </button>
 
                 </form>
 
