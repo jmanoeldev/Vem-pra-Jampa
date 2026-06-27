@@ -36,9 +36,7 @@
     font-style:italic;
 }
 
-/* =====================================================
-   FLASH MESSAGES
-===================================================== */
+/* FLASH MESSAGES */
 
 .flash-container{
     display:flex;
@@ -212,6 +210,7 @@
 .botao-excluir{
     background:#DC2626;
     color:#FFFFFF;
+    border: none;
 }
 
 .botao-excluir:hover{
@@ -227,9 +226,7 @@
     font-size:1.8rem;
 }
 
-/* =====================================================
-   PÁGINA DE EXCLUSÃO
-===================================================== */
+/* PÁGINA DE EXCLUSÃO */
 
 .painel-alerta{
     display:flex;
@@ -297,4 +294,116 @@
     display:block;
     color:#C81E1E;
     font-size:1.8rem;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1024px){
+
+    .pagina-perfil{
+        padding: 5rem 3rem;
+    }
+
+    .container-perfil{
+        max-width: 100%;
+    }
+
+    .cabecalho-perfil h1{
+        font-size: 5rem;
+    }
+
+    .card-perfil{
+        padding: 3rem;
+    }
+
+    .painel-alerta{
+        gap:2rem;
+        padding:2.5rem;
+    }
+
+    .painel-alerta__icone{
+        width:6.5rem;
+        height:6.5rem;
+        font-size:3rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .pagina-perfil{
+        padding:3rem 1.8rem;
+    }
+
+    .cabecalho-perfil{
+        margin-bottom:3rem;
+    }
+
+    .cabecalho-perfil span{
+        font-size:1.2rem;
+        letter-spacing:.18rem;
+    }
+
+    .cabecalho-perfil h1{
+        font-size:4.2rem;
+        line-height:1.1;
+    }
+
+    .card-perfil{
+        padding:2.2rem;
+        border-radius:2rem;
+    }
+
+    .grupo-campo{
+        gap:.6rem;
+    }
+
+    .grupo-campo label{
+        font-size:1.2rem;
+    }
+
+    .grupo-campo input{
+        height:5rem;
+        font-size:1.5rem;
+    }
+
+    .botao-salvar{
+        width:100%;
+        justify-content:center;
+    }
+
+    .area-acoes-secundarias{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .area-acoes-secundarias a, .area-acoes-secundarias button, .area-acoes-secundarias form{
+        width:100%;
+    }
+
+    .botao-secundario, .botao-excluir{
+        width:100%;
+        justify-content:center;
+    }
+
+    .painel-alerta{
+        flex-direction:column;
+        text-align:left;
+        gap:2rem;
+    }
+
+    .painel-alerta__icone{
+        width:6rem;
+        height:6rem;
+        font-size:3rem;
+    }
+
+    .painel-alerta__conteudo h2{
+        font-size:2.4rem;
+    }
+
+    .painel-alerta__conteudo p, .painel-alerta__conteudo li{
+        font-size:1.6rem;
+    }
+
 }
