@@ -368,8 +368,18 @@ input[type="checkbox"] {
    RESPONSIVIDADE
 ========================= */
 
+@media (max-width: 1100px) {
 
-@media (max-width: 700px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .cards-grid { 
+    grid-template-columns: repeat(1, 1fr); }
 
     .acesso-restrito h1 {
         font-size: 6.4rem;
@@ -391,9 +401,6 @@ input[type="checkbox"] {
         font-size: 4.8rem;
     }
    
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
 
     .form-preferencias {
         grid-template-columns: 1fr;
@@ -415,12 +422,4 @@ input[type="checkbox"] {
         padding: 1.4rem 2rem;
         font-size: 2.4rem;
     }
-}
-
-@media (max-width: 1100px) {
-
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
 }
