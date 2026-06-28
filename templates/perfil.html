@@ -30,11 +30,30 @@
         </div>
 
         <div class="card-perfil">
+            
             {% with messages = get_flashed_messages(with_categories=True) %}
                 {% if messages %}
-                    {% for categoria, message in messages %}
-                        <p class="{{ categoria }}">{{ message }}</p>
-                    {% endfor %}
+
+                    <div class="flash-container">
+
+                        {% for categoria, message in messages %}
+
+                            <div class="flash {{ categoria }}">
+
+                                {% if categoria == "sucesso" %}
+                                    <i class="ti ti-circle-check-filled"></i>
+                                {% else %}
+                                    <i class="ti ti-alert-circle-filled"></i>
+                                {% endif %}
+
+                                <span>{{ message }}</span>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
                 {% endif %}
             {% endwith %}
 
@@ -68,7 +87,12 @@
 
                 </div>
 
-                <button type="submit" class="botao-salvar">Salvar alterações</button>
+                <button type="submit" class="botao-salvar">
+
+                    <i class="ti ti-device-floppy"></i>
+                    <span>Salvar alterações</span>
+
+                </button>
 
             </form>
 
@@ -76,9 +100,19 @@
 
         <div class="area-acoes-secundarias">
 
-            <a href="{{ url_for('auth.logout') }}" class="botao-secundario">Sair da conta</a>
+            <a href="{{ url_for('auth.logout') }}" class="botao-secundario">
 
-            <a href="{{ url_for('auth.confirmar_exclusao') }}" class="botao-excluir">Excluir perfil</a>
+                <i class="ti ti-logout-2"></i>
+                <span>Sair da conta</span>
+
+            </a>
+
+            <a href="{{ url_for('auth.confirmar_exclusao') }}" class="botao-excluir">
+
+                <i class="ti ti-trash"></i>
+                <span>Excluir perfil</span>
+
+            </a>
 
         </div>
 
