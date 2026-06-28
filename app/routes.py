@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from app import app
 from app.utils import ler_pontos, ler_comentarios, escrever_comentario, editar_comentario, excluir_comentario
-from app.recomendacao import recomendar
+from app.recomendacao import recomendar_pontos
 
 @app.route("/")
 def index():
@@ -112,13 +112,25 @@ def excluir_comentario_rota(ponto_id, comentario_id):
 
 @app.route('/meus-destinos', methods= ['GET', 'POST'])
 def destinos():
+    pontos = []
+
+    #so processa quando o usuario envia o formulario
     if request.method == 'POST':
-        objetivos = request.form.getlist('objetivo')
-        companhias = request.form.getlist('companhia')
-        periodos = request.form.getlist('periodo')
-        orcamentos = request.form.getlist('orcamento')
 
-        pontos = recomendar(objetivos, companhias, periodos, orcamentos)
+        # coleta as respostas onde cada campo vira uma lista
+        objetivo   = request.form.getlist('objetivo')
+        companhia  = request.form.getlist('companhia')
+        periodo    = request.form.getlist('periodo')
+        orcamento  = request.form.getlist('orcamento')
 
-        return render_template('meus_destinos.html', pontos=pontos)
-    return render_template('meus_destinos.html', pontos=None)
+        # chama o recomendacao.py e recebe a lista com 5 pontos
+        pontos = recomendar_pontos(objetivo, companhia, periodo, orcamento)
+ 
+        # Converte categoria pra lista pro template funcionar
+        # template espera lista, mas no csv a categoria esta como uma string simples
+        for ponto in pontos:
+            ponto['categoria'] = [ponto['categoria']]
+
+    # ao acessar pela primeira vez, o metodo é get: retorna o formulario sem pontos
+    # ao responder, o metodo é post e entao retorna a pagina com os pontos
+    return render_template('meus_destinos.html', pontos=pontos)
