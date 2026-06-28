@@ -89,10 +89,10 @@ body {
 
 .pagina-pontos .login-notice-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 25px;
-
+    flex-wrap: wrap;
     padding: 22px 28px;
 
     background: #fff5d9;
@@ -235,4 +235,7 @@ body {
  { .pagina-pontos .cards-grid { grid-template-columns: repeat(2, 1fr); } } 
  
 @media (max-width: 700px)
- { .pagina-pontos .cards-grid { grid-template-columns: 1fr; } }
+ { .pagina-pontos .cards-grid { grid-template-columns: 1fr; } 
+    .pagina-pontos .hero-title {font-size: 9.6rem;
+    }
+}
