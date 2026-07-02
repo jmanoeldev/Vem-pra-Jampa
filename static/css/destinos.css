@@ -166,11 +166,24 @@
 .pergunta {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+       margin: 1.2rem;
 }
 
-.pergunta label {
+.opcoes-checkbox {
+    font-size: 2.7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="checkbox"] {
+    accent-color: #2e7d32;
+    transform: scale(1.2);
+    margin-right: 0.8rem;
+}
+
+.pergunta-titulo {
     font-size: 2.88rem;
+    padding-bottom: 0.8rem;
     font-weight: 600;
 }
 
@@ -193,7 +206,7 @@
     justify-self: center;
     margin-top: 1rem;
 
-    padding: 1.6rem 3rem;
+    padding: 1.6rem 3.2rem;
 
     border: none;
     border-radius: 1.2rem;
@@ -211,7 +224,7 @@
 }
 
 .btn-gerar:hover {
-    transform: translateY(-2px);
+    padding: 2rem 3.6rem;
 }
 
 /* =========================
@@ -297,8 +310,9 @@
 
 .card-image {
     height: 100%;
+    width: 100%;
     object-fit: cover;
-
+    width: 100%;
     transition: transform 0.5s ease;
 }
 
@@ -357,9 +371,20 @@
 /* =========================
    RESPONSIVIDADE
 ========================= */
+@media (max-width: 1100px) {
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
 
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 
     .acesso-restrito h1 {
         font-size: 6.4rem;
@@ -380,11 +405,6 @@
     .resultado-recomendacao h2 {
         font-size: 4.8rem;
     }
-   
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
     .form-preferencias {
         grid-template-columns: 1fr;
         gap: 1.8rem;
@@ -407,10 +427,3 @@
     }
 }
 
-@media (max-width: 1100px) {
-
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
