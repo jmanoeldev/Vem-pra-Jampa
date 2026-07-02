@@ -13,7 +13,11 @@
 <section class="detalhe__hero" style="background-image: url('{{ url_for('static', filename='images/' ~ ponto.imagem) }}')">
   <div class="detalhe__hero-overlay">
     <div class="detalhe__hero-content">
-      <span class="detalhe__badge">{{ ponto.categoria }}</span>
+      <div class="detalhe__categorias" style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+    {% for cat in ponto.categoria %}
+      <span class="detalhe__badge">{{ cat }}</span>
+    {% endfor %}
+    </div>
       <h1 class="detalhe__titulo">{{ ponto.nome }}</h1>
       <div class="detalhe__meta">
         <div class="detalhe__estrelas">
