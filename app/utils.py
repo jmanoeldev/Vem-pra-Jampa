@@ -5,18 +5,47 @@ import os
 CSV_PATH=os.path.join(os.path.dirname(__file__), '..', 'data', 'usuarios.csv')
 
 def ler_usuarios():
-    usuarios=[]
-    with open(CSV_PATH, newline='', encoding='utf-8') as f:
-        leitor = csv.DictReader(f)
-        for linha in leitor:
-            usuarios.append(linha)
+    usuarios = []
+    try:
+        # Abre e lê o arquivo como um texto comum
+        arq = open(CSV_PATH, 'r', encoding='utf-8')
+        linhas = arq.read().splitlines()
+        arq.close()
+
+        # Verifica se o arquivo tem mais que apenas o cabeçalho
+        if len(linhas) > 1:
+            for i in range(1, len(linhas)):
+                # Separa os dados pela vírgula
+                valores = linhas[i].split(',')
+                
+                # Monta um dicionário manual para manter a compatibilidade com o resto do seu projeto
+                usuario = {
+                    'username': valores[0],
+                    'email': valores[1],
+                    'password_hash': valores[2]
+                }
+                usuarios.append(usuario)
+    except FileNotFoundError:
+        pass
+        
     return usuarios
 
 def salvar_usuario(username, email, password_hash):
-    with open(CSV_PATH, 'a', newline='', encoding='utf-8') as f:
-        escritor= csv.DictWriter(f, fieldnames=['username', 'email', 'password_hash'])
-        escritor.writerow({'username':username,'email':email,'password_hash':password_hash})
-
+    # Primeiro, verificamos se precisamos colocar o cabeçalho (caso o arquivo não exista)
+    precisa_cabecalho = not os.path.exists(CSV_PATH)
+    
+    # Abre o arquivo no modo 'a' (append/adicionar)
+    arq = open(CSV_PATH, 'a', encoding='utf-8')
+    
+    if precisa_cabecalho:
+        arq.write("username,email,password_hash\n")
+        
+    # Cria a string (linha) formatada manualmente com as vírgulas e a quebra de linha no final
+    nova_linha = f"{username},{email},{password_hash}\n"
+    
+    # Escreve no arquivo e fecha
+    arq.write(nova_linha)
+    arq.close()
 def buscar_email(email):
     for usuario in ler_usuarios():
         if usuario['email']==email:
