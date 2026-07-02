@@ -3,12 +3,9 @@ import os
 
 CSV_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'usuarios.csv')
 
-# ==========================================================================
-# ENGENHARIA DE ARQUIVOS (Mecanismos manuais para substituir a biblioteca CSV)
-# ==========================================================================
+#GERENCIAMENTO DE ARQUIVOS
 
 def separar_linha_csv(linha):
-    """Separa uma linha por vírgulas, mas ignora as vírgulas dentro de aspas duplas."""
     valores = []
     campo_atual = []
     em_aspas = False
@@ -16,7 +13,7 @@ def separar_linha_csv(linha):
     while i < len(linha):
         caractere = linha[i]
         if caractere == '"':
-            # Se encontrar aspas duplicadas (""), trata como aspa literal interna do texto
+        
             if em_aspas and i + 1 < len(linha) and linha[i+1] == '"':
                 campo_atual.append('"')
                 i += 1
@@ -32,11 +29,11 @@ def separar_linha_csv(linha):
     return valores
 
 def formatar_linha_csv(valores):
-    """Formata uma lista de strings em uma linha válida de CSV com quebra de linha."""
+
     linha_formatada = []
     for v in valores:
         v_str = str(v)
-        # Se o texto contiver caracteres especiais de separação, protege envolvendo em aspas duplas
+
         if ',' in v_str or '"' in v_str or '\n' in v_str or '\r' in v_str:
             v_str = v_str.replace('"', '""')
             linha_formatada.append(f'"{v_str}"')
@@ -45,7 +42,6 @@ def formatar_linha_csv(valores):
     return ",".join(linha_formatada) + "\n"
 
 def ler_csv_dinamico(caminho_arquivo):
-    """Simula o comportamento do csv.DictReader criando dicionários dinamicamente."""
     dados_lista = []
     if not os.path.exists(caminho_arquivo) or os.path.getsize(caminho_arquivo) == 0:
         return dados_lista
@@ -75,7 +71,6 @@ def ler_csv_dinamico(caminho_arquivo):
     return dados_lista
 
 def salvar_csv_dinamico(caminho_arquivo, cabecalhos, lista_dicionarios):
-    """Simula o comportamento do csv.DictWriter reescrevendo o arquivo com segurança."""
     arq = open(caminho_arquivo, 'w', encoding='utf-8')
     arq.write(",".join(cabecalhos) + "\n")
     for d in lista_dicionarios:
@@ -84,9 +79,8 @@ def salvar_csv_dinamico(caminho_arquivo, cabecalhos, lista_dicionarios):
     arq.close()
 
 
-# ==========================================================================
-# GERENCIAMENTO DE USUÁRIOS (Python Puro)
-# ==========================================================================
+
+# GERENCIAMENTO DE USUÁRIOS 
 
 def ler_usuarios():
     return ler_csv_dinamico(CSV_PATH)
@@ -127,9 +121,8 @@ def excluir_usuario(username):
     salvar_csv_dinamico(CSV_PATH, ['username', 'email', 'password_hash'], usuarios_filtrados)
 
 
-# ==========================================================================
-# GERENCIAMENTO DE PONTOS TURÍSTICOS (Python Puro)
-# ==========================================================================
+# GERENCIAMENTO DE PONTOS TURÍSTICOS
+
 
 def ler_pontos():
     pontos = ler_csv_dinamico('data/pontos.csv')
@@ -139,10 +132,7 @@ def ler_pontos():
         row['categoria'] = row['categoria'].split('|') if row['categoria'] else []
     return pontos
 
-
-# ==========================================================================
-# GERENCIAMENTO DE COMENTÁRIOS (Python Puro)
-# ==========================================================================
+# GERENCIAMENTO DE COMENTÁRIOS 
 
 def ler_comentarios():
     return ler_csv_dinamico('data/comentarios.csv')
@@ -152,7 +142,6 @@ def escrever_comentario(ponto_id, autor, texto):
     novo_id = str(len(comentarios) + 1)
     data_hoje = datetime.now().strftime('%d/%m/%Y')
     
-    # Sanitização para evitar quebras físicas de linha no arquivo de texto comum
     texto_limpo = texto.replace('\n', ' ').replace('\r', ' ')
     
     caminho = 'data/comentarios.csv'
